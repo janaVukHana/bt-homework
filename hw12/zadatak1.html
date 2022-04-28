@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <div class="container">
+
+        <h1>BMI Calculator</h1>
+
+        <form action="zadatak1.php" method="GET">
+            <div class="form-control">
+                <label for="weight">Enter your weight:</label>
+                <input type="number" name="weight" id="weight">
+            </div>
+            <div class="form-control">
+                <label for="age">Enter your age:</label>
+                <input type="number" name="age" id="age">
+            </div>
+            <div class="form-control">
+                <h3>Choose your activity:</h3>
+
+                <input type="radio" name="activity" value="programer" id="programer">
+                <label for="programer">Programer</label>
+
+                <input type="radio" name="activity" value="menadzer" id="menadzer">
+                <label for="menadzer">Menadzer</label>
+
+                <input type="radio" name="activity" value="admin" id="admin">
+                <label for="admin">Administrativni radnik</label>
+
+                <input type="radio" name="activity" value="policajac" id="policajac">
+                <label for="policajac">Policajac</label>
+
+                <input type="radio" name="activity" value="vojnik" id="vojnik">
+                <label for="vojnik">Vojnik</label>
+
+                <input type="radio" name="activity" value="sportista" id="sportista">
+                <label for="sportista">Sportista</label>
+
+                <input type="radio" name="activity" value="ostalo" id="ostalo">
+                <label for="ostalo">Ostalo</label> 
+            </div>
+
+            <button type="submit">SEND</button>
+        </form>
+
+    </div>
+</body>
+</html>
