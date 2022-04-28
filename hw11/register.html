@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register page</title>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="register.html">Register page</a></li>
+                        <li><a href="list.html">List page</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <h1>Register page</h1>
+                <form action="register.php" method="get">
+                    <fieldset>
+                        <legend>User info</legend>
+                        <label for="fName">First Name:</label>
+                        <input type="text" name="first_name" id="fName" placeholder="Enter first name">
+                        <br>
+                        <label for="lName">Last Name:</label>
+                        <input type="text" name="last_name" id="lName" placeholder="Enter last name">
+                        <br>
+                        <span>Gender</span>
+                        <input type="radio" name="gender" id="male" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="female" value="female">
+                        <label for="female">Female</label>
+                        <br>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Enter email address">
+                        <br>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter password">
+                        <br>
+                        <label for="confirm-password">Confirm</label>
+                        <input type="password" name="confirm_password" id="confirm-password"
+                            placeholder="Confirm password">
+                        <br>
+                        <!-- checkbox required need javascript usage -->
+                        <!-- https://stackoverflow.com/questions/6218494/using-the-html5-required-attribute-for-a-group-of-checkboxes -->
+                        <span>Choose course</span>
+                        <input type="checkbox" name="courses[]" id="php" value="php">
+                        <label for="php">PHP</label>
+                        <input type="checkbox" name="courses[]" id="js" value="js">
+                        <label for="js">JS</label>
+                        <input type="checkbox" name="courses[]" id="react" value="react">
+                        <label for="react">REACT</label>
+                        <br>
+                        <label for="image">Upload Image</label>
+                        <input type="file" name="image" id="image" placeholder="Upload image">
+                        <br>
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+
+                    </fieldset>
+                </form>
+            </main>
+
+            <footer>
+                <p>Here goes page footer</p>
+            </footer>
+        </div>
+    </body>
+
+</html>
