@@ -68,10 +68,25 @@ article {
 }
 
 /* @media */
-/* @media(max-width: 992px) {
-    
+@media(max-width: 992px) {
+    .image {
+    width: 60%;
+    }
+
+    .article-info {
+        width: 38%;
+    }
 }
 
 @media(max-width: 576px) {
+    .image {
+        width: 100%;
+        border: 1px solid red;
+    }
     
-} */
+    .article-info {
+        width: 100%;
+        border: 1px solid blue;
+        padding: 0 1rem;
+    }
+}
