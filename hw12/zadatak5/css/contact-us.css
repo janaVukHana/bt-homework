@@ -1,0 +1,29 @@
+.main-container {
+    flex-direction: column;
+}
+
+p {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.form {
+    background-color: #eee;
+    width: 60%;
+    padding: 2rem;
+    border-radius: 6px;
+    margin: 2rem auto;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+}
+
+input, textarea {
+    padding: 0.5rem;
+    width: 100%;
+}

@@ -1,0 +1,20 @@
+Kreirati index.html, products.html, single-product.html, register.html, about-us.html, contact-us.html 
+po uzoru na predhodne domace. 
+
+Svi fajlovi moraju imati isti header koji ce imati navigaciju (Home, Products, Contact Us, About Us). 
+
+Takodje svaki fajl mora imati isti footer u kojem ce biti napisano ko ima zakonsko pravo na ovaj sajt 
+i izlistati literaturu koju ste koristili. 
+
+Takodje link do register.html i login.html. 
+
+Svaki proizvod na products.html strani kad se klinke na njegovu sliku ili title da odvede na single-product.html 
+(za sada svi da vode na istu stranicu). 
+
+contact-us.html treba da ima formu koja prima informacije za email, puno_ime i neki komentar (style proizvoljno). 
+
+about-us.html treba da bude informativna stranica o vama, poizvoljno je definisati.
+
+Proizvoljno odraditi responsive za 576px i 992px.
+
+single-product.html treba da izgleda kao na slici: SLIKA JE NA GDRIV-u.

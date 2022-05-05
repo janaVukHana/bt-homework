@@ -1,0 +1,39 @@
+main {
+    background-image: url('../images/nba-bg.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    width: 90%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 3rem;
+}
+
+h1 {
+    color: #fff;
+}
+
+.title p {
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* @media */
+@media(max-width: 992px) {
+    .title p {
+        font-size: 1.5rem;
+    }
+}
+
+@media(max-width: 576px) {
+    .title p {
+        font-size: 1rem;
+    }
+}
