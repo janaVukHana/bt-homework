@@ -39,26 +39,25 @@ function mathOperations($numbers, $opr = '+') {
         return;
     }
 
-    if($opr == '+' || $opr == '-') {
-        $result = 0;
-    } else {
-        $result = 1;
-    }
-
-    foreach($numbers as $number) {
-        if($opr == '+') {
-            $result += $number;
-        } else if($opr == '-') {
-            $result -= $number;
-        } else if($opr == '*') {
-            $result *= $number;
-        } else {
-            $result /= $number;
+    $result = 0;
+    for($i = 0; $i < count($numbers); $i++) {
+        if($i === 0) {
+            $result = $numbers[$i];
+            continue;
         }
+        if($opr == '+') {
+            $result += $numbers[$i];
+        } else if($opr == '-') {
+            $result -= $numbers[$i];
+        } else if($opr == '*') {
+            $result *= $numbers[$i];
+        } else if($opr == '/') {
+            $result /= $numbers[$i];
+        }
+        
     }
-
+    
     return $result;
-
 }
 
 echo mathOperations($num_arr, '+') . '<br>';
