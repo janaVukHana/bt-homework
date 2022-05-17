@@ -111,13 +111,14 @@ foreach($data as $person) {
     $isMarried = $person['married'] ? 'jeste' : 'nije';
     $he_or_she = $person['gender'] == 'male' ? 'ozenjen' : 'udata';
 
-    $full_name = $person['name'] . ' ' . $person['last_name'];
+    $f_name = $person['name'];
+    $l_name = $person['last-name'];
     $age = $person['age'];
     $ocena = $person['avg_rating'];
     $courses = implode(', ', $person['courses']);
    
 
-    echo "$full_name ima $age godine i $isMarried $he_or_she. Ima prosecnu ocenu $ocena, a kurseve koje trenutno slusa su: $courses.";
+    echo "$f_name $l_name ima $age godine i $isMarried $he_or_she. Ima prosecnu ocenu $ocena, a kurseve koje trenutno slusa su: $courses.<br>";
 }
 
 
