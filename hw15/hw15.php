@@ -15,29 +15,29 @@ function isNameExists($dataArr, $name) {
 
 // inicijalni niz
 $hwArray = ["Pera", "Milka", "Pera", "Sonja", "Danilo", "Marica", "Ivica", "Sonja", "Vanja", "Mira"];
-print_r($hwArray);
+// print_r($hwArray);
 
 // dodajem moje ime na kraj niza
 if(!isNameExists($hwArray, 'Ilija')) {
     array_push($hwArray, "Ilija");
 }
-print_r($hwArray);
+// print_r($hwArray);
 
 // dodajem ime rodjaka na trece mesto
 if(!isNameExists($hwArray, 'Milica')) {
     array_splice($hwArray, 2, 0, 'MILICA');
 }
-print_r($hwArray);
+// print_r($hwArray);
 
 // koliko ucenika ima u nizu
 $broj_ucenika = count($hwArray);
-echo "U nizu ima $broj_ucenika ucenika.";
+echo "U nizu ima $broj_ucenika ucenika.<br><br>";
 
 //dodajem novog clana na pocetak niza
 if(!isNameExists($hwArray, "Jana")) {
     array_unshift($hwArray, "Jana");
 }
-print_r($hwArray);
+// print_r($hwArray);
 
 //izbrisati Danila iz niza
 foreach($hwArray as $index => $name) {
@@ -45,12 +45,12 @@ foreach($hwArray as $index => $name) {
         array_splice($hwArray, $index, 1);
     }
 }
-print_r($hwArray);
+// print_r($hwArray);
 
 // skloniti duplirane clanove niza
 $hwArray = array_unique($hwArray);
 $hwArray = array_values($hwArray);
-print_r($hwArray);
+// print_r($hwArray);
 
 
 
@@ -117,7 +117,6 @@ foreach($data as $person) {
     $ocena = $person['avg_rating'];
     $courses = implode(', ', $person['courses']);
    
-
     echo "$f_name $l_name ima $age godine i $isMarried $he_or_she. Ima prosecnu ocenu $ocena, a kurseve koje trenutno slusa su: $courses.<br>";
 }
 
