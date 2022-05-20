@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * This function filter users
+ * 
+ *  @param array $users 
+ *  @param string $searchContent
+ *  @return array
+ */
+
 function search_users(array $users, string $searchContent = ''): array {
     $filteredUsers = [];
     
@@ -42,7 +50,7 @@ $users = [
     ];
 
 
-    print_r(search_users($users, 'Jov'));
+    // print_r(search_users($users, 'Jov'));
     // print_r(search_users($users, 'Rad'));
     // print_r(search_users($users, 'gdkjdfkljg'));
     // print_r(search_users($users));
