@@ -60,13 +60,13 @@ function mathOperations($numbers, $opr = '+') {
     return $result;
 }
 
-echo mathOperations($num_arr, '+') . '<br>';
-echo mathOperations($num_arr, '-') . '<br>';
-echo mathOperations($num_arr, '*') . '<br>';
-echo mathOperations($num_arr, '/') . '<br>';
-echo mathOperations($num_arr, 'A') . '<br>';
-echo mathOperations($num_arr) . '<br>';
-echo mathOperations('ilija', '-') . '<br>';
+// echo mathOperations($num_arr, '+') . '<br>';
+// echo mathOperations($num_arr, '-') . '<br>';
+// echo mathOperations($num_arr, '*') . '<br>';
+// echo mathOperations($num_arr, '/') . '<br>';
+// echo mathOperations($num_arr, 'A') . '<br>';
+// echo mathOperations($num_arr) . '<br>';
+// echo mathOperations('ilija', '-') . '<br>';
 
 
 // 3.Zadatak 
