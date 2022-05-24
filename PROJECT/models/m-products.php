@@ -121,6 +121,25 @@ function searchProductsByTerm($term = '') {
     return $filtered_products;
 }
 
+/**
+ * This function return filtered array by category
+ * @param string $category
+ * @return array
+ */
+function getRelatedByCategory(string $category):array {
+    global $products;
+
+    $related_products = [];
+
+    foreach($products as $product) {
+        if($product['category'] == $category) {
+            $related_products[] = $product;
+        }
+    }
+
+    return $related_products;
+}
+
 $products = [
     [
         'id' => 1,

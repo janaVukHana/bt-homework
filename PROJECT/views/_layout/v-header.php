@@ -12,7 +12,7 @@
 <body>
     <!-- NAVIGATION -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
-        <div class="container-fluid">
+        <div class="container">
           <div class="container">
               <a class="navbar-brand" href="#">Demo SHOP</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
                 <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Products</a>
+                <a class="nav-link active" aria-current="page" href="products_page_controler.php">Products</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Contact&nbsp;Us</a>
