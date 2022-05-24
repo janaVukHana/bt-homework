@@ -46,7 +46,7 @@ function getOneProductById(string $id):array {
     global $products;
 
     foreach($products as $product) {
-        if($product['id'] === $id) {
+        if($product['id'] == $id) {
             return $product;
         }
     }
@@ -58,7 +58,7 @@ function getOneProductById(string $id):array {
  * @param string $currentProductId
  * @return array 
  */
-function getNextProduct($currentProductId) {
+function getNextProduct(string $currentProductId):array {
     global $products;
 
     $numberOfProducts = count($products);
@@ -80,7 +80,7 @@ function getNextProduct($currentProductId) {
  * @param string $currentProductId
  * @return array
  */
-function getPrevProduct($currentProductId) {
+function getPrevProduct(string $currentProductId):array {
     global $products;
 
     $numberOfProducts = count($products);
@@ -107,6 +107,10 @@ function searchProductsByTerm($term = '') {
     global $products;
 
     $filtered_products = [];
+
+    if($term === '') {
+        return $products;
+    }
 
     foreach($products as $product) {
         if($product['title'] === $term || $product['brand'] === $term) {

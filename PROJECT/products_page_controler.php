@@ -2,21 +2,36 @@
 
 require_once __DIR__ . '/models/m-products.php';
 
-if($_GET['products'] === '' || !isset($_GET['products'])) {
+$term = '';
+$sorting = '';
+
+if(!empty($_GET['products'])) {
+    $sorting = $_GET['products'];
+}
+
+if(!empty($_GET['search_term'])) {
+    $term = $_GET['search_term'];
+}
+
+
+if($sorting === '') {
     $selectedRandom = 'selected';
     $selectedLow = '';
     $selectedHigh = '';
-    $show_products = getAllProducts();
-} else if($_GET['products'] === 'price-asc') {
+    $show_products_test = getAllProducts();
+    $show_products = searchProductsByTerm($term);
+} else if($sorting === 'price-asc') {
     $selectedRandom = '';
     $selectedLow = 'selected';
     $selectedHigh = '';
-    $show_products = getAllProducts('price-asc');
-} else if($_GET['products'] === 'price-desc') {
+    $show_products_test = getAllProducts('price-asc');
+    $show_products = searchProductsByTerm($term);
+} else if($sorting === 'price-desc') {
     $selectedRandom = '';
     $selectedLow = '';
     $selectedHigh = 'selected';
-    $show_products = getAllProducts('price-desc');
+    $show_products_test = getAllProducts('price-desc');
+    $show_products = searchProductsByTerm($term);
 } 
 
 
