@@ -13,11 +13,15 @@
     <!-- NAVIGATION -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
         <div class="container">
-          <div class="container">
-              <a class="navbar-brand" href="#">Demo SHOP</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+
+          <div>
+            <a class="navbar-brand" href="#">Demo SHOP</a>
+          </div>
+
+          <div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
           </div>
     
           <div class="collapse navbar-collapse" id="navbarsExample04">
@@ -34,10 +38,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About&nbsp;Us</a>
               </li>
-              
-            <!-- <form role="search">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            </form> -->
+            </ul>
           </div>
+
         </div>
       </nav>
