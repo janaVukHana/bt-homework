@@ -23,7 +23,14 @@
                             <a class="btn btn-outline-dark btn-sm mb-1" href="./single_product_page_controler.php?id=<?php echo $next_product['id']; ?>">NEXT</a>
                         </div>
                     </div>
-                    <a href="checkout_page_controler.php" class="btn btn-outline-dark">BUY</a>
+                    <form action="checkout_page_controler.php" method="get">
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity: </label>
+                            <input name="quantity" type="number" class="form-control" id="quantity" placeholder="Enter quantity you want." step="1" value="1" min="1" max="5" required />
+                        </div>
+                        <input type="hidden" name="id" value=<?php echo htmlspecialchars($id); ?> />
+                        <button type="submit" class="btn btn-outline-dark">BUY</button>
+                    </form>
                 </div>
             </div>
 

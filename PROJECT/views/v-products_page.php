@@ -30,13 +30,13 @@
               <div class="card mb-3" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-7">
-                      <img src=<?php echo $product['img']; ?> class="img-fluid rounded-start" alt="...">
+                      <img src=<?php echo htmlspecialchars($product['img']); ?> class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-5">
                       <div class="card-body">
-                        <h5 class="card-title"><?php echo $product['title']; ?></h5>
-                        <p class="card-text">Price: <?php echo $product['price']; ?>$</p>
-                        <a href="./single_product_page_controler.php?id=<?php echo $product['id']; ?>" class="btn btn-outline-success position-absolute bottom-0 end-0 mb-1 mr-1">SHOW</a>
+                        <h5 class="card-title"><?php echo htmlspecialchars($product['title']); ?></h5>
+                        <p class="card-text">Price: <?php echo htmlspecialchars($product['price']); ?>$</p>
+                        <a href="./single_product_page_controler.php?id=<?php echo htmlspecialchars($product['id']); ?>" class="btn btn-outline-success position-absolute bottom-0 end-0 mb-1 mr-1">SHOW</a>
                       </div>
                     </div>
                   </div>
