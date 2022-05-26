@@ -1,0 +1,17 @@
+.product {
+    opacity: 0;
+}
+
+.product-animation {
+    animation: revealProduct .5s forwards;
+}
+
+@keyframes revealProduct {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}

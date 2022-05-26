@@ -3,7 +3,7 @@
             <h1>Checkout Page</h1>
 
             <div class="row">
-              <div class="col-md-6 bg-success p-3">
+              <div class="card shadow col-md-6 p-3 bg-dark text-light">
                   <form action="order_message_controler.php" method="get">
                       <div class="mb-3">
                           <label for="f-name" class="form-label">Name: </label>
@@ -56,16 +56,16 @@
                           </label>
                       </div>
                       <input type="hidden" name="title" value=<?php echo htmlspecialchars($title_as_input_value); ?>>
-                      <button class="btn btn-outline-dark" type="submit">ORDER</button>
+                      <button class="btn btn-outline-light w-100 mt-3" type="submit">ORDER</button>
                   </form>
               </div><!--end of col-->
-              <div class="col-md-6 bg-danger p-3">
+              <div class="col-md-6 p-3">
                 <div class="card mx-auto mb-3" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-6">
-                      <img src=<?php echo $img; ?> class="img-fluid rounded-start" alt="...">
+                      <img src=<?php echo $img; ?> class="img-fluid rounded-start" alt=<?php echo htmlspecialchars($alt); ?> />
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 bg-dark text-light">
                       <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($title); ?></h5>
                         <p class="card-text">Price: <?php echo htmlspecialchars($price); ?></p>

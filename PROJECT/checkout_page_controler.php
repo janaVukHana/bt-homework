@@ -11,6 +11,7 @@ $img = $choosen_product['img'];
 $title = $choosen_product['title'];
 $price = $choosen_product['price'];
 $total_price = $quantity * $price;
+$alt = $choosen_product['category'];
 
 // $title is two words and when I send it thrue input value I just 
 // get first word. Solution: replace space char with &nbsp;

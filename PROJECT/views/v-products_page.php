@@ -26,7 +26,7 @@
         <!-- list of products -->
         <div class="row">
           <?php foreach($show_products as $product) { ?>
-            <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="product col-lg-4 col-md-6 col-sm-12">
               <div class="card mb-3" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-7">

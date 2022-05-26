@@ -10,16 +10,21 @@ $prev_product = getPrevProduct($id);
 
 $related_products = getRelatedByCategory($current_product['category']);
 $related_products_num = count($related_products);
-$random_item = rand(0, $related_products_num-1);
+$random_item_0 = rand(0, $related_products_num-1);
+$random_item_1 = rand(0, $related_products_num-1);
 $random_item_2 = rand(0, $related_products_num-1);
-$random_item_3 = rand(0, $related_products_num-1);
 
-while($random_item == $random_item_2) {
+
+while($random_item_0 == $random_item_1) {
+    $random_item_1 = rand(0, $related_products_num-1);
+}
+while($random_item_0 == $random_item_2 || $random_item_1 == $random_item_2) {
     $random_item_2 = rand(0, $related_products_num-1);
 }
-while($random_item == $random_item_3 || $random_item_2 == $random_item_3) {
-    $random_item_3 = rand(0, $related_products_num-1);
-}
+
+$random_items = [$random_item_0, $random_item_1, $random_item_2];
+
+$num_rand_items = 3;
 
 
 require __DIR__ . '/views/_layout/v-header.php';
