@@ -14,11 +14,15 @@ $random_item_0 = rand(0, $related_products_num-1);
 $random_item_1 = rand(0, $related_products_num-1);
 $random_item_2 = rand(0, $related_products_num-1);
 
+while($current_product['id'] == $related_products[$random_item_0]['id']) {
+    $random_item_0 = rand(0, $related_products_num-1);
+}
 
-while($random_item_0 == $random_item_1) {
+while($random_item_0 == $random_item_1 || $current_product['id'] == $related_products[$random_item_1]['id']) {
     $random_item_1 = rand(0, $related_products_num-1);
 }
-while($random_item_0 == $random_item_2 || $random_item_1 == $random_item_2) {
+
+while($random_item_0 == $random_item_2 || $random_item_1 == $random_item_2 || $current_product['id'] == $related_products[$random_item_2]['id']) {
     $random_item_2 = rand(0, $related_products_num-1);
 }
 

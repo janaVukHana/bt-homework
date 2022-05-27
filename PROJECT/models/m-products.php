@@ -280,6 +280,136 @@ $products = [
         'category' => 'tegovi',
         'brand' => 'HSK',
         'available' => true
+    ],
+    [
+        'id' => 19,
+        'title' => 'Puma Yersea',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/dresovi/dres_4.jpg',
+        'price' => 77,
+        'category' => 'odeca',
+        'brand' => 'Puma',
+        'available' => true
+    ],
+    [
+        'id' => 20,
+        'title' => 'Puma Yersea',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/dresovi/dres_6.jpg',
+        'price' => 76,
+        'category' => 'odeca',
+        'brand' => 'Puma',
+        'available' => true
+    ],
+    [
+        'id' => 21,
+        'title' => 'Puma Yersea',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/dresovi/dres_6.jpg',
+        'price' => 99,
+        'category' => 'odeca',
+        'brand' => 'Puma',
+        'available' => true
+    ],
+    [
+        'id' => 22,
+        'title' => 'Puma Yersea',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/dresovi/dres_7.jpg',
+        'price' => 89,
+        'category' => 'odeca',
+        'brand' => 'Puma',
+        'available' => true
+    ],
+    [
+        'id' => 23,
+        'title' => 'Adidas Ball',
+        'description' => 'Ball for every dayBall for every dayBall for every dayBall for every dayBall for every dayBall for every day',
+        'img' => './public/theme/img/lopte/lopta_5.jpg',
+        'price' => 54,
+        'category' => 'rekviziti',
+        'brand' => 'Adidas',
+        'available' => true
+    ],
+    [
+        'id' => 25,
+        'title' => 'Adidas Ball',
+        'description' => 'Ball for every dayBall for every dayBall for every dayBall for every dayBall for every dayBall for every day',
+        'img' => './public/theme/img/lopte/lopta_6.jpg',
+        'price' => 65,
+        'category' => 'rekviziti',
+        'brand' => 'Adidas',
+        'available' => true
+    ],
+    [
+        'id' => 123,
+        'title' => 'Adidas Ball',
+        'description' => 'Ball for every dayBall for every dayBall for every dayBall for every dayBall for every dayBall for every day',
+        'img' => './public/theme/img/lopte/lopta_7.jpg',
+        'price' => 101,
+        'category' => 'rekviziti',
+        'brand' => 'Adidas',
+        'available' => false
+    ],
+    [
+        'id' => 26,
+        'title' => 'Some Ball',
+        'description' => 'Ball for every dayBall for every dayBall for every dayBall for every dayBall for every dayBall for every day',
+        'img' => './public/theme/img/lopte/lopta_8.jpg',
+        'price' => 88,
+        'category' => 'rekviziti',
+        'brand' => 'Adidas',
+        'available' => true
+    ],
+    [
+        'id' => 27,
+        'title' => 'Socer Ball',
+        'description' => 'Ball for every dayBall for every dayBall for every dayBall for every dayBall for every dayBall for every day',
+        'img' => './public/theme/img/lopte/lopta_9.jpg',
+        'price' => 76,
+        'category' => 'rekviziti',
+        'brand' => 'Adidas',
+        'available' => true
+    ],
+    [
+        'id' => 28,
+        'title' => 'Another Ball',
+        'description' => 'Ball for every dayBall for every dayBall for every dayBall for every dayBall for every dayBall for every day',
+        'img' => './public/theme/img/lopte/lopta_10.jpg',
+        'price' => 54,
+        'category' => 'rekviziti',
+        'brand' => 'Nike',
+        'available' => true
+    ],
+    [
+        'id' => 29,
+        'title' => 'Basket Ball',
+        'description' => 'Ball for every dayBall for every dayBall for every dayBall for every dayBall for every dayBall for every day',
+        'img' => './public/theme/img/lopte/lopta_11.jpg',
+        'price' => 49,
+        'category' => 'rekviziti',
+        'brand' => 'Spalding',
+        'available' => true
+    ],
+    [
+        'id' => 30,
+        'title' => 'Teg 8',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/tegovi/tegovi_8.jpg',
+        'price' => 13,
+        'category' => 'tegovi',
+        'brand' => 'Supreme',
+        'available' => true
+    ],
+    [
+        'id' => 31,
+        'title' => 'Teg 9',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/tegovi/tegovi_9.jpg',
+        'price' => 76,
+        'category' => 'tegovi',
+        'brand' => 'Supreme',
+        'available' => true
     ]
 
 ];

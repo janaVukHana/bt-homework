@@ -1,8 +1,8 @@
 
 <!-- MAIN CONTENT -->
-<main class="bg-light py-5 border-bottom border-dark border-5 shadow">
+<main class="container bg-light border-bottom border-dark border-5 py-5 my-3">
     <?php if($is_errors) { ?>
-        <div class="container bg-success rounded">
+        <div class="container bg-success rounded shadow">
             <div class="py-5">
                 <h2 class="display-5 fw-bold text-white">You ordered successufuly.</h2>
                 <p class="col-md-8 fs-4 text-white-50"><?php echo "Thank you $name $last_name. You ordered $title. Enjoy."; ?></p>

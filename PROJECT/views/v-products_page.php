@@ -25,15 +25,15 @@
         </div>
 
         <!-- list of products -->
-        <div class="row">
+        <div class="row g-3">
           <?php foreach($show_products as $index => $product) { if($index > 11) {break;} ?>
             <div class="product col-lg-4 col-md-6 col-sm-12">
-              <div class="card mb-3" style="max-width: 540px;">
-                  <div class="row g-0">
-                    <div class="col-md-7">
-                      <img src=<?php echo htmlspecialchars($product['img']); ?> class="img-fluid rounded-start" alt="...">
+              <div class="card  border border-dark rounded" style="max-width: 540px;">
+                  <div class="row">
+                    <div class="col-md-7 ">
+                      <img src=<?php echo htmlspecialchars($product['img']); ?> class="img-fluid rounded-start" alt=<?php echo htmlspecialchars($product['category']); ?>>
                     </div>
-                    <div class="col-md-5">
+                    <div class="bg-dark text-white col-md-5 shadow">
                       <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($product['title']); ?></h5>
                         <p class="card-text">Price: <?php echo htmlspecialchars($product['price']); ?>$</p>
@@ -43,9 +43,8 @@
                   </div>
                 </div>
             </div>
-          <?php } ?>
-              
-      </div>
-    </div>
-          
+          <?php } ?>   
+        </div>
+
+    </div>        
 </main>
