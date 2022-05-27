@@ -100,13 +100,24 @@ function searchProductsByTerm($term = '') {
     if($term === '') {
         return $products;
     }
-
+    
     foreach($products as $product) {
-        if($product['title'] === $term || $product['brand'] === $term) {
+        $title = $product['title'];
+        $brand = $product['brand'];
+        
+        // change everything to be small letter (strtolower())
+        $title_to_lower = strtolower($title);
+        $brand_to_lower = strtolower($brand);
+        $term_to_lower = strtolower($term);
+
+        // check if $title or $brand contains $term (str_contains($sencence, $word))
+        $is_title = str_contains($title_to_lower, $term_to_lower);
+        $is_brand = str_contains($brand_to_lower, $term_to_lower);
+        if($is_title || $is_brand) {
             $filtered_products[] = $product;
         } 
     }
-
+   
     return $filtered_products;
 }
 
@@ -159,6 +170,16 @@ $products = [
         'category' => 'rekviziti',
         'brand' => 'Adidas',
         'available' => false
+    ],
+    [
+        'id' => 16,
+        'title' => 'Adidas Ball',
+        'description' => 'Ball for every dayBall for every dayBall for every dayBall for every dayBall for every dayBall for every day',
+        'img' => './public/theme/img/lopte/lopta_4.jpg',
+        'price' => 50.9,
+        'category' => 'rekviziti',
+        'brand' => 'Adidas',
+        'available' => true
     ],
     [
         'id' => 5,
@@ -222,9 +243,9 @@ $products = [
     ],
     [
         'id' => 10,
-        'title' => 'Teg 4',
+        'title' => 'Teg 6',
         'description' => 'For your pleasure',
-        'img' => './public/theme/img/tegovi/tegovi_4.jpg',
+        'img' => './public/theme/img/tegovi/tegovi_6.jpg',
         'price' => 66,
         'category' => 'tegovi',
         'brand' => 'HSK',
@@ -239,6 +260,26 @@ $products = [
         'category' => 'tegovi',
         'brand' => 'HSK',
         'available' => false
+    ],
+    [
+        'id' => 17,
+        'title' => 'Teg 5',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/tegovi/tegovi_5.jpg',
+        'price' => 98,
+        'category' => 'tegovi',
+        'brand' => 'HSK',
+        'available' => false
+    ],
+    [
+        'id' => 18,
+        'title' => 'Teg 7',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/tegovi/tegovi_7.jpg',
+        'price' => 93,
+        'category' => 'tegovi',
+        'brand' => 'HSK',
+        'available' => true
     ]
 
 ];

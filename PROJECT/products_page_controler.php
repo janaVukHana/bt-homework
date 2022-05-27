@@ -20,6 +20,7 @@ if($sorting === '') {
     $selectedHigh = '';
     $show_products_test = getAllProducts();
     $show_products = searchProductsByTerm($term);
+    shuffle($show_products);
 } else if($sorting === ORDER_BY_PRICE_ASC) {
     $selectedRandom = '';
     $selectedLow = 'selected';

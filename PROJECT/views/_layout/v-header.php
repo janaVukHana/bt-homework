@@ -10,7 +10,7 @@
     <!-- css -->
     <link rel="stylesheet" href="./public/theme/css/product-page.css">
 
-    <title>Products Page</title>
+    <title>Demo SHOP</title>
 </head>
 
 <body>

@@ -52,7 +52,7 @@
                       <div class="form-check">
                           <input name="terms" class="form-check-input" type="checkbox" value="check" id="terms" checked />
                           <label class="form-check-label" for="terms">
-                            Uslovi i Prava
+                            Agree with our Terms and Privacy
                           </label>
                       </div>
                       <input type="hidden" name="title" value=<?php echo htmlspecialchars($title_as_input_value); ?>>

@@ -15,6 +15,7 @@ $alt = $choosen_product['category'];
 
 // $title is two words and when I send it thrue input value I just 
 // get first word. Solution: replace space char with &nbsp;
+// But now can not wrap in htmlspecialchars()...
 $title_as_input_value = str_replace(' ', '&nbsp;', $title);
 
 
