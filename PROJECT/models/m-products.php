@@ -159,6 +159,29 @@ function getRelatedByCategory(string $category):array {
     return $related_products;
 }
 
+/**
+ * This function return max three related products
+ * @param array $products
+ * @param array $current_product
+ * @return array
+ */
+
+function getRelatedProducts($products, $current_product) {
+    $rel_prod = [];
+    shuffle($products);
+    foreach($products as $index => $product) {
+        if(count($rel_prod) >= 3) {
+            break;
+        }
+        if($current_product['id'] == $product['id']) {
+            continue;
+        }
+        $rel_prod[] = $product;
+    }
+
+    return $rel_prod;
+}
+
 $products = [
     [
         'id' => 1,
@@ -427,6 +450,36 @@ $products = [
         'img' => './public/theme/img/tegovi/tegovi_9.jpg',
         'price' => 76,
         'category' => 'tegovi',
+        'brand' => 'Supreme',
+        'available' => true
+    ],
+    [
+        'id' => 200,
+        'title' => 'Test 1',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/tegovi/tegovi_9.jpg',
+        'price' => 76,
+        'category' => 'test',
+        'brand' => 'Supreme',
+        'available' => true
+    ],
+    [
+        'id' => 201,
+        'title' => 'Test 2',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/tegovi/tegovi_9.jpg',
+        'price' => 76,
+        'category' => 'test',
+        'brand' => 'Supreme',
+        'available' => true
+    ],
+    [
+        'id' => 202,
+        'title' => 'Test 3',
+        'description' => 'For your pleasure',
+        'img' => './public/theme/img/tegovi/tegovi_9.jpg',
+        'price' => 76,
+        'category' => 'test',
         'brand' => 'Supreme',
         'available' => true
     ]

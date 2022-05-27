@@ -63,7 +63,7 @@
                 <div class="card mx-auto mb-3" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-6">
-                      <img src=<?php echo $img; ?> class="img-fluid rounded-start" alt=<?php echo htmlspecialchars($alt); ?> />
+                      <img src=<?php echo htmlspecialchars($img); ?> class="img-fluid rounded-start" alt=<?php echo htmlspecialchars($alt); ?> />
                     </div>
                     <div class="col-md-6 bg-dark text-light">
                       <div class="card-body">
