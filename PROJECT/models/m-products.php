@@ -4,12 +4,14 @@ const ORDER_BY_PRICE_ASC='price-asc';
 const ORDER_BY_PRICE_DSC='price-desc'; 
 
 /**
- * this function return array of products if they are available
+ * This function return array of products if they are available.
+ * It change/modify/return original $products array
  * @param string $sort
  * @return array
  */
 function getAllProducts(string $sort = ''):array {
     global $products;
+    $products = getAvailableProducts($products);
 
     if($sort === ORDER_BY_PRICE_ASC) {
          $price = array_column($products, 'price');
@@ -23,6 +25,23 @@ function getAllProducts(string $sort = ''):array {
         return $products;
     } 
 }
+
+/**
+ * This function return available products
+ * @param array $products
+ * @return array
+ */
+function getAvailableProducts($products) {
+    $available_products = [];
+
+    foreach($products as $product) {
+        if($product['available']) {
+            $available_products[] = $product;
+        }
+    }
+    return $available_products;
+}
+
 
 /**
  * This function return one product array
@@ -169,7 +188,7 @@ $products = [
         'price' => 31.9,
         'category' => 'rekviziti',
         'brand' => 'Adidas',
-        'available' => false
+        'available' => true
     ],
     [
         'id' => 16,
@@ -189,7 +208,7 @@ $products = [
         'price' => 44,
         'category' => 'odeca',
         'brand' => 'Nike',
-        'available' => true
+        'available' => false
     ],
     [
         'id' => 4,
@@ -199,7 +218,7 @@ $products = [
         'price' => 43.5,
         'category' => 'odeca',
         'brand' => 'Adidas',
-        'available' => false
+        'available' => true
     ],
     [
         'id' => 6,
@@ -209,7 +228,7 @@ $products = [
         'price' => 45,
         'category' => 'odeca',
         'brand' => 'Puma',
-        'available' => true
+        'available' => false
     ],
     [
         'id' => 7,
@@ -229,7 +248,7 @@ $products = [
         'price' => 100,
         'category' => 'tegovi',
         'brand' => 'HSK',
-        'available' => false
+        'available' => true
     ],
     [
         'id' => 9,
@@ -239,7 +258,7 @@ $products = [
         'price' => 100,
         'category' => 'tegovi',
         'brand' => 'HSK',
-        'available' => true
+        'available' => false
     ],
     [
         'id' => 10,
@@ -249,7 +268,7 @@ $products = [
         'price' => 66,
         'category' => 'tegovi',
         'brand' => 'HSK',
-        'available' => true
+        'available' => false
     ],
     [
         'id' => 15,
@@ -299,7 +318,7 @@ $products = [
         'price' => 76,
         'category' => 'odeca',
         'brand' => 'Puma',
-        'available' => true
+        'available' => false
     ],
     [
         'id' => 21,
@@ -329,7 +348,7 @@ $products = [
         'price' => 54,
         'category' => 'rekviziti',
         'brand' => 'Adidas',
-        'available' => true
+        'available' => false
     ],
     [
         'id' => 25,
@@ -349,7 +368,7 @@ $products = [
         'price' => 101,
         'category' => 'rekviziti',
         'brand' => 'Adidas',
-        'available' => false
+        'available' => true
     ],
     [
         'id' => 26,
@@ -359,7 +378,7 @@ $products = [
         'price' => 88,
         'category' => 'rekviziti',
         'brand' => 'Adidas',
-        'available' => true
+        'available' => false
     ],
     [
         'id' => 27,
@@ -379,7 +398,7 @@ $products = [
         'price' => 54,
         'category' => 'rekviziti',
         'brand' => 'Nike',
-        'available' => true
+        'available' => false
     ],
     [
         'id' => 29,

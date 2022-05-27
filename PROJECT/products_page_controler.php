@@ -18,20 +18,20 @@ if($sorting === '') {
     $selectedRandom = 'selected';
     $selectedLow = '';
     $selectedHigh = '';
-    $show_products_test = getAllProducts();
+    getAllProducts();
     $show_products = searchProductsByTerm($term);
     shuffle($show_products);
 } else if($sorting === ORDER_BY_PRICE_ASC) {
     $selectedRandom = '';
     $selectedLow = 'selected';
     $selectedHigh = '';
-    $show_products_test = getAllProducts(ORDER_BY_PRICE_ASC);
+    getAllProducts(ORDER_BY_PRICE_ASC);
     $show_products = searchProductsByTerm($term);
 } else if($sorting === ORDER_BY_PRICE_DSC) {
     $selectedRandom = '';
     $selectedLow = '';
     $selectedHigh = 'selected';
-    $show_products_test = getAllProducts(ORDER_BY_PRICE_DSC);
+    getAllProducts(ORDER_BY_PRICE_DSC);
     $show_products = searchProductsByTerm($term);
 } 
 
