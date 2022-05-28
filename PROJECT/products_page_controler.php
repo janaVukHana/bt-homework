@@ -13,28 +13,20 @@ if(!empty($_GET['search_term'])) {
     $term = $_GET['search_term'];
 }
 
+$selectedRandom = '';
+$selectedLow = '';
+$selectedHigh = '';
 
 if($sorting === '') {
     $selectedRandom = 'selected';
-    $selectedLow = '';
-    $selectedHigh = '';
-    getAllProducts();
-    $show_products = searchProductsByTerm($term);
-    shuffle($show_products);
+    $show_products = sort_rand($term);
 } else if($sorting === ORDER_BY_PRICE_ASC) {
-    $selectedRandom = '';
     $selectedLow = 'selected';
-    $selectedHigh = '';
-    getAllProducts(ORDER_BY_PRICE_ASC);
-    $show_products = searchProductsByTerm($term);
+    $show_products = sort_asc($term);
 } else if($sorting === ORDER_BY_PRICE_DSC) {
-    $selectedRandom = '';
-    $selectedLow = '';
     $selectedHigh = 'selected';
-    getAllProducts(ORDER_BY_PRICE_DSC);
-    $show_products = searchProductsByTerm($term);
+    $show_products = sort_dsc($term);
 } 
-
 
 require __DIR__ . '/views/_layout/v-header.php';
 

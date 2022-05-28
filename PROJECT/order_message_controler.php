@@ -53,7 +53,11 @@ $is_errors = count($systemErrors) > 0 ? false : true;
 
 $name = $_GET['f_name'];
 $last_name = $_GET['l_name'];
-$title = $_GET['title'];
+// $title = $_GET['title'];
+$id = $_GET['title'];
+
+$ordered_product = getOneProductById($id);
+$title = $ordered_product['title'];
 
 require __DIR__ . '/views/_layout/v-header.php';
 

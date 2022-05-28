@@ -182,6 +182,40 @@ function getRelatedProducts($products, $current_product) {
     return $rel_prod;
 }
 
+/**
+ * This func sort random
+ * @param string $term
+ * @return array
+ */
+function sort_rand($term) {
+    getAllProducts();
+    $show_products = searchProductsByTerm($term);
+    shuffle($show_products);
+    return $show_products;
+ }
+
+ /**
+ * This func sort by ascending order
+ * @param string $term
+ * @return array
+ */
+ function sort_asc($term) {
+    getAllProducts(ORDER_BY_PRICE_ASC);
+    $show_products = searchProductsByTerm($term);
+    return $show_products;
+ }
+
+ /**
+ * This func sort by descending order
+ * @param string $term
+ * @return array
+ */
+ function sort_dsc($term) {
+    getAllProducts(ORDER_BY_PRICE_DSC);
+    $show_products = searchProductsByTerm($term);
+    return $show_products;
+ }
+
 $products = [
     [
         'id' => 1,

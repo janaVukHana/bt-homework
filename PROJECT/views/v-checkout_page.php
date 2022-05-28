@@ -55,7 +55,7 @@
                             Agree with our Terms and Privacy
                           </label>
                       </div>
-                      <input type="hidden" name="title" value=<?php echo htmlspecialchars($title_as_input_value); ?>>
+                      <input type="hidden" name="title" value=<?php echo htmlspecialchars($id); ?>>
                       <button class="btn btn-outline-light w-100 mt-3" type="submit">ORDER</button>
                   </form>
               </div><!--end of col-->

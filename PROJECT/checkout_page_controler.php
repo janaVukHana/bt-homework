@@ -17,7 +17,7 @@ $alt = $choosen_product['category'];
 // get first word. Solution: replace space char with &nbsp;
 // But now can not wrap in htmlspecialchars()...
 // POSALJI ID PA IZVUCI TITLE
-$title_as_input_value = str_replace(' ', '&nbsp;', $title);
+// $title_as_input_value = str_replace(' ', '&nbsp;', $title);
 
 
 require __DIR__ . '/views/_layout/v-header.php';
