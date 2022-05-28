@@ -5,7 +5,7 @@
         <div class="container bg-success rounded shadow">
             <div class="py-5">
                 <h2 class="display-5 fw-bold text-white">You ordered successufuly.</h2>
-                <p class="col-md-8 fs-4 text-white-50"><?php echo "Thank you $name $last_name. You ordered $title. Enjoy."; ?></p>
+                <p class="col-md-8 fs-4 text-white-50"><?php echo htmlspecialchars("Thank you $name $last_name. You ordered $title. Enjoy."); ?></p>
                 <a href="products_page_controler.php" class="btn btn-dark btn-lg">LOOK MORE</a>
             </div>
         </div> <!--end of container-->
