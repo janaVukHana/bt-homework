@@ -21,4 +21,6 @@ revealProduct();
 
 window.addEventListener('scroll', () => {
     revealProduct();
-})
+});
+
+

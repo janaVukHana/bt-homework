@@ -20,10 +20,10 @@
                                     <p class="card-text">Category: <?php echo htmlspecialchars($current_product['category']); ?></p>
                                     <div class="d-flex justify-content-between">
                                         <div class="col">
-                                            <a class="btn btn-outline-dark btn-sm mb-1" href="./single_product_page_controler.php?id=<?php echo $prev_product['id']; ?>">PREV</a>
+                                            <a class="prev btn btn-outline-dark btn-sm mb-1" href="./single_product_page_controler.php?id=<?php echo $prev_product['id']; ?>">PREV</a>
                                         </div>
                                         <div class="col">
-                                            <a class="btn btn-outline-dark btn-sm mb-1" href="./single_product_page_controler.php?id=<?php echo $next_product['id']; ?>">NEXT</a>
+                                            <a class="next btn btn-outline-dark btn-sm mb-1" href="./single_product_page_controler.php?id=<?php echo $next_product['id']; ?>">NEXT</a>
                                         </div>
                                     </div>
                                     <form action="checkout_page_controler.php" method="get">
@@ -72,3 +72,4 @@
     </div><!-- end of main container -->
 
 </main>
+
