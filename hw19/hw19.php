@@ -2,7 +2,6 @@
 
 // PITANJA ZA DANILA:
 //1. KAKO DOKUMENTUJEMO FUNCIJU KADA IMAMO OPCIONI PARAMETAR? func je na liniji 55
-//2. PITANJE JE NA LINIJI 87
  
 // Kreirati klasu Contact:  protected $phone; protected $email; 
 // Potrebno je da ima funkcije za setovanje i dohvatanje atributa, 
@@ -77,17 +76,25 @@ $contact3->setEmail('steva@gmail.com');
 // Kreirati funckije addContact(Contact $contact) (instanceof) koja dodaje objekat klase kontakt u
 //  $contacts. 
 // listAllContacts() (echo) koja ispisuje sve kontakte koji su upisani u objektu.
-class ContactList extends Contact {
+
+class ContactList {
     protected $contacts = [];
 
+    /**
+     * This function add contact in contacts array
+     * @param array $contact
+     * @return void
+     */
     public function addContact($contact){
         if($contact instanceof Contact) {
             $this->contacts[] = $contact;
         }
-        // ZASTO SAM RADIO instanceof, A NE SAMO OVAKO
-        // $this->contacts[] = $contact;
     }
 
+    /**
+     * This function echo all contacts
+     * @return void
+     */
     public function listAllContacts() {
         $all_contacts = $this->contacts;
 
