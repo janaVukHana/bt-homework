@@ -1,25 +1,21 @@
 <?php
-// PITANJE: ako u class Contact napravim 
-    // protected function __construct($phone, $email) {
-    //     $this->phone = $phone;
-    //     $this->email = $email;
-    // }
-    // i onda u sledece dve klase probam u __construct funkciji da uradim 
-    // parent::__construct($phone, $email) kod mi ne radi.
-    // Zashto?
-
 
 // CONTACT CLASS //////////////////////////////////////////////////////////////////////////////
 abstract class Contact {
     protected $phone;
     protected $email;
 
+    public function __construct($phone, $email) {
+        $this->phone = $phone;
+        $this->email = $email;
+    }
+
     /**
      * This function set phone number
      * @param string $phone
      * @return void
      */
-    protected function setPhone(string $phone):void {
+    public function setPhone(string $phone):void {
         $this->phone = $phone;
     }
 
@@ -28,7 +24,7 @@ abstract class Contact {
      * @param string $email
      * @return void
      */
-    protected function setEmail(string $email):void {
+    public function setEmail(string $email):void {
         $this->email = $email;
     }
 
@@ -37,7 +33,7 @@ abstract class Contact {
      * 
      * @return string
      */
-    protected function getPhone():string {
+    public function getPhone():string {
         return $this->phone;
     }
 
@@ -46,7 +42,7 @@ abstract class Contact {
      * 
      * @return string
      */
-    protected function getEmail():string {
+    public function getEmail():string {
         return $this->email;
     }
 
@@ -55,7 +51,7 @@ abstract class Contact {
      * @param string $text 
      * @return bool
      */
-    protected function contains(string $text = ''):bool {
+    public function contains(string $text = ''):bool {
         if(str_contains($this->phone, $text) || str_contains($this->email, $text)) {
             return true;
         }
@@ -69,7 +65,7 @@ abstract class Contact {
     // public function displayMe() {
     //     echo "Phone: $this->phone. Email: $this->email.";
     // }
-    abstract protected function displayMe();
+    abstract public function displayMe();
  }
 
 // CUSTOMER CONTACT CLASS ////////////////////////////////////////////////////////////////////////
@@ -83,8 +79,7 @@ class CustomerContact extends Contact {
     public function __construct($firstName, $lastName, $phone, $email) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        $this->phone = $phone;
-        $this->email = $email;
+        parent::__construct($email, $phone);
     }
 
     /**
@@ -105,8 +100,7 @@ class BusinessContact extends Contact {
     public function __construct($address, $companyName, $phone, $email) {
         $this->address = $address;
         $this->companyName = $companyName;
-        $this->phone = $phone;
-        $this->email = $email;
+        parent::__construct($email, $phone);
     }
 
     /**

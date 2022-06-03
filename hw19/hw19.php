@@ -24,7 +24,7 @@ class Contact {
      * @param string $email
      * @return void
      */
-    public function setEmail(string $email):void {
+    public function setEmail(string $email): void {
         $this->email = $email;
     }
 
@@ -33,7 +33,7 @@ class Contact {
      * 
      * @return string
      */
-    public function getPhone():string {
+    public function getPhone(): string {
         return $this->phone;
     }
 
@@ -42,7 +42,7 @@ class Contact {
      * 
      * @return string
      */
-    public function getEmail():string {
+    public function getEmail(): string {
         return $this->email;
     }
 
@@ -51,7 +51,7 @@ class Contact {
      * @param string $text 
      * @return bool
      */
-    public function contains(string $text = ''):bool {
+    public function contains(string $text = ''): bool {
         if(str_contains($this->phone, $text) || str_contains($this->email, $text)) {
             return true;
         }
@@ -85,17 +85,19 @@ class ContactList {
      * @param array $contact
      * @return void
      */
-    public function addContact($contact){
+    public function addContact(Contact $contact): ContactList{
         if($contact instanceof Contact) {
             $this->contacts[] = $contact;
-        }
+        } 
+
+        retun $this;
     }
 
     /**
      * This function echo all contacts
      * @return void
      */
-    public function listAllContacts() {
+    public function listAllContacts(): void {
         $all_contacts = $this->contacts;
 
         foreach($all_contacts as $contact) {

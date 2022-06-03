@@ -1,0 +1,16 @@
+1.Zadatak 
+Data je tabela “colors” u bazi podataka koja predstavlja tabelu boja. 
+Jedna boja ima svoj id, svoj naziv, svoju hex vrednost, 
+status da li je aktivna i datume kad je kreirana i kad je poslednji put trpela promene.
+
+Napisati u SQL-u upite ka bazi:
+
+Za dobijanje svih boja koje su aktivne (status = 1), a dobiti ih sortirane po datumu kreiranja.
+Za dobijanje 5 bilo kojih bolja.
+Za upis nove boje u bazu (proizvoljno odaberite vrednosti).
+Za promenu statusa. Sve boje koje su neaktivne postaviti da su aktivne (status = 0 => 1).
+Za brisanje boje koja ima id 5. 
+Za bonus obrisati boju koja je najranije promenjena.
+
+2.Zadatak
+Odraditi prvu stvar iz PHP-a preko PDO klase.
