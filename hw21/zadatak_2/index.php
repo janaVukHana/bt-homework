@@ -17,11 +17,14 @@ if (isset($_POST['submit'])) {
 else if(isset($_POST['add_color'])) {
     $color = $_POST['color'];
     $hex_value = $_POST['hex_value'];
-    // $status = $_POST['status'];
+    $status = $_POST['status'];
     // $created = $_POST['created'];
     // $updated_at = $_POST['updated_at'];
     $object = new Colors();
-    $object->AddColor($color, $hex_value);
+    $object->AddColor($color, $hex_value, $status);
+} else if(isset($_POST['update_colors'])) {
+    $object = new Colors();
+    $object->UpdateColors();
 }
 
 ?>
@@ -65,6 +68,11 @@ else if(isset($_POST['add_color'])) {
         Created: <input type="text" name="created">
         Updated: <input type="text" name="updated_at">
         <button type="submit" name="add_color">Add new color</button>
+    </form>
+
+    <!-- update colors unactive to active in db -->
+    <form action="index.php" method="POST">
+        <button type="submit" name="update_colors">Update colors</button>
     </form>
 </body>
 </html>
