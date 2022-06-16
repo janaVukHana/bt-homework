@@ -1,11 +1,30 @@
 <?php
 
 session_start();
-// session_destroy();
 if(isset($_POST['submit'])) {
     $_SESSION['cookie'] = true;
+    $_SESSION['timer'] = time();
     header('Location: ./index.php');
 }
+
+// session will destroy after 30 seconds after you accept cookies
+if(isset($_SESSION['timer'])) {
+    $user_inactive = 30;
+    $session_life = time() - $_SESSION['timer'];
+
+    if($session_life > $user_inactive) {
+        session_destroy();
+    }
+    
+}
+
+// cookie will expire in 60 sec
+// setcookie('name','ilija', time() + 60); 
+
+//unset cookie (set it to the past)
+// setcookie('name', '', time() - 100);
+
+
 
 ?>
 
