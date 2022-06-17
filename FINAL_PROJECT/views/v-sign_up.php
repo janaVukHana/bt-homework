@@ -29,6 +29,7 @@
             <label for="floatingPassword">Password</label>
             <small class="text-danger"><?php echo $systemErrors['password_err']; ?></small>
         </div>
+        
 
         <button class="w-100 btn btn-lg btn-primary" type="submit" name="sign_up">Sign in</button>
     </form>

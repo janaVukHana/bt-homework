@@ -30,17 +30,15 @@
                 <a class="nav-link <?php if($page == 'Courts page') echo htmlspecialchars('active'); ?>" href="courts_page_controler.php">Courts</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./post-court.html">Add Court</a>
+                <a class="nav-link <?php if($page == 'Add court page') echo htmlspecialchars('active'); ?>" href="add_court_page_controler.php">Add Court</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
               </li>
-              <li class="nav-item ms-5">
-                <?php if($_SESSION['username']) { ?>
-                <a class="nav-link" href="logout_page_controler.php">Logout</a>
-                <?php } ?>
-              </li>
             </ul>
           </div>
+          <?php if($_SESSION['username']) { ?>
+            <a class="btn btn-primary" href="logout_page_controler.php">Logout</a>
+          <?php } ?>
         </div>
       </nav>

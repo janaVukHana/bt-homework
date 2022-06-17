@@ -15,7 +15,7 @@ require __DIR__ . '/views/_layout/v-header.php';
 
 if(!isset($_SESSION['username'])) {
     echo "<h2 class='text-center text-warning my-5'>You need to be logged.</h2>";
-    header( "refresh:3;url=login_page_controler.php" );
+    header( "refresh:2;url=login_page_controler.php" );
 } else {
     require __DIR__ . '/views/v-courts.php';
 }

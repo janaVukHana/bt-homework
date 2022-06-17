@@ -14,7 +14,6 @@ if(isset($_POST['sign_up'])) {
     // USERNAME: Required. + Must have 2 or more charaters
     if (empty($_POST['username'])) {
         $systemErrors['username_err'] = "* Username is required";
-        echo $systemErrors['username_err'];
       } 
       else {
         $username = test_input($_POST["username"]);
