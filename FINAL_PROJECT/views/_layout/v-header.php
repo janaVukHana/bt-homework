@@ -38,7 +38,48 @@
             </ul>
           </div>
           <?php if($_SESSION['username']) { ?>
-            <a class="btn btn-primary" href="logout_page_controler.php">Logout</a>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle mx-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <small>Hi <?php echo htmlspecialchars($_SESSION['username']); ?></small> <img style="width: 20px; height: 20px; border-radius: 50%;" src=<?php echo $_SESSION['img'] ?> />
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="logout_page_controler.php">Logout</a></li>
+                <!-- Button trigger modal -->
+                <li><button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Change Img</button></li>
+                
+              </ul>
+            </div>
           <?php } ?>
         </div>
       </nav>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content bg-secondary text-white">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Change your avatar image</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- form for changing img -->
+              <div class="form-signin w-100 m-auto my-5">
+
+                <form action="" method="POST">
+                  
+                  <div class="form-floating">
+                    <input type="file" class="form-control" id="change-img" name="img">
+                  </div>
+              
+                  <button class="w-100 btn btn-lg btn-dark text-white" type="submit" name="change_img">Change</button>
+
+                </form>
+
+              </div>
+              <!-- end of my form -->
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+      <!-- end of Modal -->

@@ -34,7 +34,6 @@
               </li>
             </ul>
           </div>
-            <!-- <a class="nav-link" href="#"><img style="width: 50px; height: 50px; border-radius: 50%;" src="theme/img/avatar/avatar_2.jpg" /></a> -->
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle mx-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img style="width: 50px; height: 50px; border-radius: 50%;" src="theme/img/avatar/avatar_2.jpg" />
@@ -49,41 +48,39 @@
           </div>
       </nav>
 
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content bg-secondary text-white">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Change your avatar image</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- form for changing img -->
+              <div class="form-signin w-100 m-auto my-5">
+
+                <form action="" method="POST">
+                  
+                  <div class="form-floating">
+                    <input type="file" class="form-control" id="change-img" name="img">
+                  </div>
+              
+                  <button class="w-100 btn btn-lg btn-dark text-white" type="submit" name="upload">Change</button>
+
+                </form>
+
+              </div>
+              <!-- end of my form -->
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+      <!-- end of Modal -->
+      
       <!-- main content -->
   
-          <!-- Modal -->
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content bg-secondary text-white">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Change your avatar image</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <!-- form for changing img -->
-                  <div class="form-signin w-100 m-auto my-5">
-  
-                    <form action="" method="POST">
-                      
-                      <div class="form-floating">
-                        <input type="file" class="form-control" id="change-img" name="img">
-                      </div>
-                  
-                      <button class="w-100 btn btn-lg btn-dark text-white" type="submit" name="upload">Change</button>
-  
-                    </form>
-  
-                  </div>
-                  <!-- end of my form -->
-                </div>
-                <div class="modal-footer">
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end of Modal -->
 
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">

@@ -27,11 +27,11 @@
           <?php } ?>
       
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
+            <input type="text" class="form-control" id="floatingInput" name="username" value="<?php echo htmlspecialchars($username);?>"placeholder="username">
             <label for="floatingInput">Username</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+            <input type="password" class="form-control" id="floatingPassword" name="password" value="<?php echo htmlspecialchars($password);?>"placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
       

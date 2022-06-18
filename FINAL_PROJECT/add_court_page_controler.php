@@ -53,7 +53,9 @@ if(isset($_POST['add_new_court'])) {
         
         if(in_array($file_ext, $allower_ext)) {
             if($file_size <= 1000000) {
-                move_uploaded_file($file_tmp, $target_dir);
+                if(empty($systemErrors)) {
+                    move_uploaded_file($file_tmp, $target_dir);
+                }
             } else {
                 $systemErrors['file_err'] = '* File is too large.';
             }

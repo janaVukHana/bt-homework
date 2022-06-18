@@ -47,8 +47,8 @@ class Users extends DB {
         }
         
         // $passwordHash = password_hash($password,PASSWORD_BCRYPT, array("cost"=>12));
-        $sqlString = "INSERT INTO `login` (username,email,password) VALUES(:username,:email,:password);";
-        $stmt=$pdo->connect()->prepare($sqlString);
+        $sql = "INSERT INTO `login` (username,email,password) VALUES(:username,:email,:password);";
+        $stmt=$pdo->connect()->prepare($sql);
         $stmt->bindValue(':username',$username);
         // $stmt->bindValue(':password',$passwordHash);
         $stmt->bindValue(':password',$password);
@@ -57,6 +57,23 @@ class Users extends DB {
         if($result){
             return true;
         }
+    }
+
+    /**
+     * This function return one user data
+     * @param string $username
+     * @return array
+     */
+    public function get_user(string $username): array {
+        $sql = "SELECT * FROM `login` WHERE username LIKE :username;";
+        $pdo = new DB();
+        $st = $pdo->connect()->prepare($sql);
+        $st->bindValue(':username', $username);
+        $st->execute();
+
+        $user = $st->fetch();
+        return $user;
+        
     }
 
     // public function addDog($name, $city, $state) {

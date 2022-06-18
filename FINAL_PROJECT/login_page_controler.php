@@ -14,7 +14,10 @@ if(isset($_POST['log_in'])) {
     $user_is_logged = $users->log_in($username, $password);
 
     if($user_is_logged) {
-        $_SESSION['username'] = $username;
+        $user = new Users();
+        $user_data = $user->get_user($username);
+        $_SESSION['username'] = $user_data['username'];
+        $_SESSION['img'] = $user_data['img'];
         header('Location: courts_page_controler.php');
     }
 

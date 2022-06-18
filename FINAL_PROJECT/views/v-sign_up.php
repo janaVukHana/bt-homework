@@ -15,17 +15,17 @@
         <!-- <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
         <h1 class="h3 mb-3 fw-normal">Please Sign Up</h1>
         <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" name="username" value="<?php echo $username;?>" placeholder="username">
+            <input type="text" class="form-control" id="floatingInput" name="username" value="<?php echo htmlspecialchars($username);?>" placeholder="username">
             <label for="floatingInput">Username</label>
             <small class="text-danger"><?php echo $systemErrors['username_err']; ?></small>
         </div>
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" name="email" value="<?php echo $email;?>" placeholder="name@example.com">
+            <input type="email" class="form-control" id="floatingInput" name="email" value="<?php echo htmlspecialchars($email);?>" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
             <small class="text-danger"><?php echo $systemErrors['email_err']; ?></small>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" name="password" value="<?php echo $password;?>" placeholder="Password">
+            <input type="password" class="form-control" id="floatingPassword" name="password" value="<?php echo htmlspecialchars($password);?>" placeholder="Password">
             <label for="floatingPassword">Password</label>
             <small class="text-danger"><?php echo $systemErrors['password_err']; ?></small>
         </div>

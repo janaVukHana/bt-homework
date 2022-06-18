@@ -2,6 +2,8 @@
 session_start();
 
 require_once __DIR__ . '/models/Courts.php';
+require_once __DIR__ . '/models/handle_header_form.php';
+handle_header_form();
 
 // get courts from db
 $courts = new Courts();
