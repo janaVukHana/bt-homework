@@ -1,5 +1,5 @@
 <?php
-include 'DB.php';
+// include 'DB.php';
 
 class Users extends DB {
     
@@ -14,10 +14,9 @@ class Users extends DB {
         $sql = "SELECT * FROM `login`";
         // $st = $stmt = statement
         $st = $this->connect()->query($sql);
-
+        
         while($row = $st->fetch()) {
-            // echo $row['username'] . '<br>';
-            if($row['username'] == $username && $row['password'] == $password) {
+            if($row['username'] == $username && password_verify($password, $row['password'])) {
                 $user_is_logged = true;
             }
         }
@@ -29,9 +28,10 @@ class Users extends DB {
      * @param string $username
      * @param string $username
      * @param string $password
+     * @param string $img
      * @return bool
      */
-    public function registration(string $username, string $email, string $password):bool {
+    public function registration(string $username, string $email, string $password, string $img):bool {
 
         // $sql = "SELECT count(username) AS num FROM users Where username=?;";
         $sql = "SELECT count(username) AS num FROM `login` WHERE username=?";
@@ -45,18 +45,21 @@ class Users extends DB {
             // echo 'User already exists';
             return false;
         }
+
         
-        // $passwordHash = password_hash($password,PASSWORD_BCRYPT, array("cost"=>12));
-        $sql = "INSERT INTO `login` (username,email,password) VALUES(:username,:email,:password);";
+        $passwordHash = password_hash($password,PASSWORD_BCRYPT, array("cost"=>12));
+        $sql = "INSERT INTO `login` (username,email,password, img) VALUES(:username,:email,:password,:img);";
         $stmt=$pdo->connect()->prepare($sql);
+        $stmt->bindValue(':password',$passwordHash);
         $stmt->bindValue(':username',$username);
-        // $stmt->bindValue(':password',$passwordHash);
-        $stmt->bindValue(':password',$password);
+        // $stmt->bindValue(':password',$password);
         $stmt->bindValue(':email',$email);
+        $stmt->bindValue(':img',$img);
+
         $result = $stmt->execute();
         if($result){
             return true;
-        }
+        } 
     }
 
     /**
@@ -76,27 +79,7 @@ class Users extends DB {
         
     }
 
-    // public function addDog($name, $city, $state) {
-    //     $sql = "INSERT INTO `labradors`(`name`, `city`, `state`) VALUES (?,?,?)";
-    //     // $st = $this->connect()->query($sql);
-    //     // prepare() koristimo kada nam sql nije definisan do kraja
-    //     $st = $this->connect()->prepare($sql);
-    //     // execute koristimo kada koristimo prepare()
-    //     $st->execute([$name, $city, $state]);
-    // }
-
-    // public function deleteDog($name) {
-    //     $sql = "DELETE FROM `labradors` WHERE `name` LIKE ?";
-    //     $st = $this->connect()->prepare($sql);
-    //     $st->execute([$name]);
-    // }
-
-    // public function updateDog($new_name, $name) {
-    //     $sql = "UPDATE `labradors` SET `name`=? WHERE `name` LIKE ?";
-    //     $st = $this->connect()->prepare($sql);
-    //     $st->execute([$new_name, $name]);
-    // }
+    
 }
 
-// $users = new Users();
-// $users->getUsers('ilija', 'ilija123');
+

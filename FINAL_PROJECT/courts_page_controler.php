@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once __DIR__ . '/models/DB.php';
+
 
 require_once __DIR__ . '/models/Courts.php';
 require_once __DIR__ . '/models/handle_header_form.php';

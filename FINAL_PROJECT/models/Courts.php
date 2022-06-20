@@ -1,6 +1,6 @@
 <?php
 
-include 'DB.php';
+// include 'DB.php';
 
 class Courts extends DB {
     
@@ -12,15 +12,28 @@ class Courts extends DB {
             $sql = "SELECT * FROM `courts`";
             $st = $this->connect()->query($sql);
     
-            // while($row = $st->fetch()) {
-            //     echo $row['id'];
-            //     echo $row['name'];
-            //     echo $row['location'];
-            //     echo $row['file_path'];
-            // }
             $rows= $st->fetchAll();
             return $rows;
     }
+
+
+    /**
+     * This function return one court id
+     * @param string $id
+     * @return array array
+     */
+    public static function get_one_by_id(string $id): array {
+        $sql = "SELECT * FROM `courts` WHERE id LIKE :id";
+        $pdo = new DB();
+
+        $st = $pdo->connect()->prepare($sql);
+        $st->bindValue(':id', $id);
+        $st->execute();
+
+        $row = $st->fetch();
+        return $row;
+    }
+
 
 
     /**

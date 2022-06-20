@@ -8,7 +8,7 @@
 
 
 <main class="form-signin w-100 m-auto my-5">
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
         <div class="mt-3 mb-3">
             <i class="fa-solid fa-basketball fa-2xl"></i>          
         </div>
@@ -29,6 +29,12 @@
             <label for="floatingPassword">Password</label>
             <small class="text-danger"><?php echo $systemErrors['password_err']; ?></small>
         </div>
+
+        <!-- upload profile img -->
+        <div class="form-floating">
+            <input type="file" class="form-control" id="upload" aria-describedby="emailHelp" name="upload">
+            <small class="text-danger"><?php echo htmlspecialchars($systemErrors['file_err']); ?></small>
+          </div>
         
 
         <button class="w-100 btn btn-lg btn-primary" type="submit" name="sign_up">Sign in</button>

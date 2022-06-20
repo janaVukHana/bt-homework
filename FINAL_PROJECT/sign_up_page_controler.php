@@ -3,6 +3,7 @@ session_start();
 
 $page = 'Sign up page';
 
+require_once __DIR__ . '/models/DB.php';
 require_once __DIR__ . '/models/Users.php';
 require_once __DIR__ . '/models/test_input.php';
 
@@ -58,17 +59,48 @@ if(isset($_POST['sign_up'])) {
         }
       }
 
+      // FILE: validate file upload
+      // UPLOAD: file
+    $allower_ext = ['png', 'jpg', 'jpeg', 'gif'];
+
+    if(!empty($_FILES['upload']['name'])) {
+        $file_name = $_FILES['upload']['name'];
+        $file_size = $_FILES['upload']['size'];
+        $file_tmp = $_FILES['upload']['tmp_name'];
+
+        // KADA DODAM JOS JEDAN FOLDER NE RADI
+        // PRIMER: public/theme/img/avatar/{$file_name}
+        $target_dir = "public/theme/img/{$file_name}";
+
+        // get file extension
+        $file_ext = explode('.', $file_name);
+        $file_ext = strtolower(end($file_ext));
+        
+        if(in_array($file_ext, $allower_ext)) {
+            if($file_size <= 1000000) {
+                if(empty($systemErrors)) {
+                    move_uploaded_file($file_tmp, $target_dir);
+                }
+            } else {
+                $systemErrors['file_err'] = '* File is too large.';
+            }
+        } else {
+            $systemErrors['file_err'] = '* Invalid file type.';
+        }
+    } else {
+        $systemErrors['file_err'] = '* Please choose a file.';
+    }
+
     $is_errors = count($systemErrors) > 0 ? false : true;
 
     // if there is no errors in form try to register user
     if($is_errors) {
         $user = new Users();
-        $user_registration = $user->registration($username, $email, $password);
+        $user_registration = $user->registration($username, $email, $password, $target_dir);
     }
 
     if($user_registration) {
-        $_SESSION['username'] = $username;
-        header('Location: courts_page_controler.php');
+        header('Location: login_page_controler.php');
     }
 
     if($is_errors) {
