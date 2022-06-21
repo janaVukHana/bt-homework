@@ -46,11 +46,13 @@
                       <?php echo htmlspecialchars($court['created_at']); ?>
                       </small></p>
                     </div>
-                      <p>
-                        Name: <?php echo htmlspecialchars($court['name']); ?><br>
-                        Location: <span class="location-name"><?php echo htmlspecialchars($court['location']); ?><span>
-                      </p>
-                      <div>
+      
+                        <p style="margin-top: -13px;">Name: <?php echo htmlspecialchars($court['name']); ?></p>
+                        <p style="margin-top: -13px;">Location: <span class="location-name"><?php echo htmlspecialchars($court['location']); ?><span></p>
+                        <p style="margin-top: -13px;">Rating: <span class="avg-rating"><?php echo htmlspecialchars($court['avg_rating']); ?><span></p> 
+                        <p style="margin-top: -13px;">Comments number: <span class="comment-num"><?php echo htmlspecialchars($court['comments_num']); ?><span></p>
+                    
+                    <div>
                         <a class="btn btn-outline-success" href="single_court_controler.php?id=<?php echo htmlspecialchars($court['id']); ?>">Show</a>
                       </div>
                   </div>

@@ -91,5 +91,43 @@ class Courts extends DB {
 
     }
 
+
+    /**
+     * This function update total rating to the current court and num of comments update by 1 and avg_rating
+     * @param string $rating
+     * @param string $comment
+     * @param string $avg_rating
+     * @param string $id
+     * @return void
+     */
+    public static function update_court_rating_and_comments(string $rating, string $comment, string $avg_rating, string $id): void {
+        $sql = "UPDATE `courts` SET `total_rating`=:rating,`comments_num`=:comment,`avg_rating`=:avg_rating WHERE id LIKE :id";
+        $pdo = new DB();
+        $st = $pdo->connect()->prepare($sql);
+        $st->bindValue(':rating', $rating);
+        $st->bindValue(':comment', $comment);
+        $st->bindValue(':avg_rating', $avg_rating);
+        $st->bindValue(':id', $id);
+        $st->execute();
+    }
+
+
+    /**
+     * This function get current court total rating and num of comments
+     * @param string $id
+     * @return 
+     */
+    public static function get_total_rating_and_comments(string $id) {
+        $sql = "SELECT `total_rating`, `comments_num` FROM `courts` WHERE id LIKE :id";
+        $pdo = new DB();
+        $st = $pdo->connect()->prepare($sql);
+        $st->bindValue(':id', $id);
+        $st->execute();
+
+        $result = $st->fetch();
+        return $result;
+    }
+
+
 }
 

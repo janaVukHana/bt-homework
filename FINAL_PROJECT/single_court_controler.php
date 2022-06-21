@@ -55,6 +55,22 @@ if(isset($_POST['add_comment'])) {
 
     if (count($systemErrors) == 0) {
         $comments->add_comment($court_id, $comment, $rating, $_SESSION['username']);
+        // update court rating and num
+        $rating_and_comments_num = Courts::get_total_rating_and_comments($court_id);
+
+        $old_rating = $rating_and_comments_num['total_rating'];
+        $old_comments_num = $rating_and_comments_num['comments_num'];
+        
+        $new_rating = $old_rating + $rating;
+        $new_comments_num = $old_comments_num + 1;
+
+        $avg_rating = $new_rating / $new_comments_num;
+        // print_r($new_rating);
+        // print_r($new_comments_num);
+        
+        Courts::update_court_rating_and_comments($new_rating, $new_comments_num, $avg_rating, $court_id);
+
+        // clear inputs
         $comment = '';
         $rating = '';
     }

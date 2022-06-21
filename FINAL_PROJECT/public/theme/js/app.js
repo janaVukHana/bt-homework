@@ -25,43 +25,20 @@ if(window.location.href.indexOf('single_court_controler.php') >= 0) {
 
     avgStars.innerHTML = addStars;
     
-} 
-// else if (window.location.href.indexOf('courts_page_controler.php') >= 0) {
-    // ALL COURTS PAGE
+} else if (window.location.href.indexOf('courts_page_controler.php') >= 0) {
 
-    // CHANGE: capitalize all location names
-    // const locations = document.querySelectorAll('.location-name');
-    // locations.forEach(location => {
-    //     let locationStr = location.textContent;
-    //     const locationStrCapitalize = locationStr.charAt(0).toUpperCase() + locationStr.slice(1);
-    //     location.textContent = locationStrCapitalize;
-    // })
-
-    // filters for courts
-    // const selectField = document.querySelector('.court-location');
-    // selectField.addEventListener('change', e => {
-    //     const allCourts = document.querySelectorAll('.single-court');
-        
-    //     const courtsContainer = document.querySelector('.courts-container');
-        // courtsContainer.innerHTML = 'ilija';
-
-    //     const filterByLocation = document.querySelector('.court-location');
-    //     let selected = filterByLocation.value; // get selected option value
-    //     let selectedToCapitalize = selected.charAt(0).toUpperCase() + selected.slice(1);
-    //     console.log(selectedToCapitalize); // == Liman ilij Detelinara ili Centar ...
+    // all ratings
+    const avgRating = document.querySelectorAll('.avg-rating');
 
 
-    //     allCourts.forEach(court => {
-    //         console.log(court);
-    //         if(court.innerText.indexOf(selectedToCapitalize) >= 0) {
-    //             court.style.display = 'none !important';
-    //         } else {
-    //             court.style.display = '';
-    //         }
-    //     })
-    // })
-    
+    avgRating.forEach(rating => {
+        const ratingNum = rating.textContent;
+        console.log(rating.innerHTML);
 
-// }
-
-
+        let avgRatingInnerText = '';
+        for (let i = 0; i < ratingNum; i++) {
+            avgRatingInnerText += `<img src="./public/theme/img/icons/star.png" alt="star icon" style="display: inline; width: 20px; height: 20px;"/>`;
+            rating.innerHTML = avgRatingInnerText;
+        }
+    })
+}
