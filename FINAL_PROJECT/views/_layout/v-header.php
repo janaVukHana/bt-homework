@@ -29,9 +29,11 @@
               <li class="nav-item">
                 <a class="nav-link <?php if($page == 'Courts page') echo htmlspecialchars('active'); ?>" href="courts_page_controler.php">Courts</a>
               </li>
+              <?php if($is_set_session) { ?>
               <li class="nav-item">
                 <a class="nav-link <?php if($page == 'Add court page') echo htmlspecialchars('active'); ?>" href="add_court_page_controler.php">Add Court</a>
               </li>
+              <?php } ?>
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
               </li>

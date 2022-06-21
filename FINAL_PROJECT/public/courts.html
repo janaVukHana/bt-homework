@@ -39,6 +39,30 @@
       <!-- main content -->
       <div class="album py-5 bg-light">
         <div class="container">
+
+          <!-- filters -->
+        <div class="bg-dark text-white pt-3 px-2 rounded shadow">
+          <form action="products_page_controler.php" method="get">
+            <div class="row d-flex justify-content-between mb-3">
+                <div class="col-md-4 col-sm-12 mb-1">
+                    <select class="form-select" aria-label="Default select example" name="court_location" onchange="this.form.submit()">
+                        <option selected value="">Show Random</option>
+                        <option value="detelinara">Detelinara</option>
+                        <option value="liman">Liman</option>
+                        <option value="centar">Centar</option>
+                        <option value="grbavica">Grbavica</option>
+                        <option value="novo_naselje">Novo naselje</option>
+                      </select>
+                </div>
+                <!-- <div class="col-md-4 col-sm-12 mb-1">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search term" aria-label="Search term" aria-describedby="button-addon2" name="search_term" value=<?php echo $term; ?>>
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
+                    </div>
+                </div> -->
+            </div>
+          </form>
+        </div>
     
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">

@@ -5,15 +5,43 @@
 class Courts extends DB {
     
     /**
-     * This function return all courts from db
+     * This function return all courts from db - first LAST added
      * @return array
      */
     public function get_all_courts(): array {
-            $sql = "SELECT * FROM `courts`";
+            $sql = "SELECT * FROM `courts` ORDER BY created_at DESC";
             $st = $this->connect()->query($sql);
     
             $rows= $st->fetchAll();
             return $rows;
+    }
+
+     /**
+     * This function return all courts from db - first FIRST added
+     * @return array
+     */
+    public function get_oldest_courts(): array {
+        $sql = "SELECT * FROM `courts` ORDER BY created_at ASC";
+        $st = $this->connect()->query($sql);
+
+        $rows= $st->fetchAll();
+        return $rows;
+    }
+
+
+    /**
+     * This function return array of courts filtered by location
+     * @param string $location
+     * @return array
+     */
+    public function get_court_by_location(string $location): array {
+        $sql = "SELECT * FROM `courts` WHERE `location` LIKE :location";
+        $pdo = new DB();
+        $st = $pdo->connect()->prepare($sql);
+        $st->bindValue(':location', $location);
+        $st->execute();
+        $rows = $st->fetchAll();
+        return $rows;
     }
 
 

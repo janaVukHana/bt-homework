@@ -6,14 +6,19 @@ require_once __DIR__ . '/models/DB.php';
 require_once __DIR__ . '/models/Courts.php';
 require_once __DIR__ . '/models/test_input.php';
 
+$is_set_session = false;
+
+if(isset($_SESSION['username'])) {
+    $is_set_session = true;
+}
+
 $page = 'Add court page';
 
 $systemErrors = [];
 
 if(isset($_POST['add_new_court'])) {
     // VALIDATIONS
-    // print_r($_FILES);
-    // validate name not empty, min 2 characters, trim
+    // NAME: name not empty, min 2 characters, trim
     if (empty($_POST['court_name'])) {
         $systemErrors['court_name_err'] = "* Court name is required";
       } 
@@ -68,7 +73,6 @@ if(isset($_POST['add_new_court'])) {
         $systemErrors['file_err'] = '* Please choose a file.';
     }
 
-    // echo "$court_name $court_location $court_description $target_dir";
     $is_errors = count($systemErrors) > 0 ? false : true;
 
     if(!$systemErrors) {
@@ -85,11 +89,6 @@ if(isset($_POST['add_new_court'])) {
 
 require __DIR__ . '/views/_layout/v-header.php';
 
-if(!isset($_SESSION['username'])) {
-    echo "<h2 class='text-center text-warning my-5'>You need to be logged.</h2>";
-    header( "refresh:2;url=login_page_controler.php" );
-} else {
-    require __DIR__ . '/views/v-add_court.php';
-}
+require __DIR__ . '/views/v-add_court.php';
 
 require __DIR__ . '/views/_layout/v-footer.php';

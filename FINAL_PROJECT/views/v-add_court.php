@@ -6,7 +6,7 @@
               <i class="fa-solid fa-basketball fa-2xl"></i>          
           </div>
           <!-- <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-          <h1 class="h3 mb-3 fw-normal">Please Log In</h1>
+          <h1 class="h3 mb-3 fw-normal">Add Your Court</h1>
           <small class="text-danger"><?php echo htmlspecialchars($systemErrors['court_name_err']); ?></small>
           <div class="form-floating">
             <input type="text" class="form-control" id="court-name" name="court_name" value="<?php echo htmlspecialchars($court_name);?>" placeholder="Court name">

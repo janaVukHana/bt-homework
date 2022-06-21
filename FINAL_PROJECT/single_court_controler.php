@@ -1,5 +1,7 @@
 <?php
 session_start();
+$js = '<script src="./public/theme/js/singleCourt.js"></script>';
+
 
 require_once __DIR__ . '/models/DB.php';
 require_once __DIR__ . '/models/Courts.php';
@@ -7,6 +9,13 @@ require_once __DIR__ . '/models/Comments.php';
 require_once __DIR__ . '/models/test_input.php';
 require_once __DIR__ . '/models/handle_header_form.php';
 handle_header_form();
+
+// if sesssion is set show add court page
+// and show add comment form
+$is_set_session = false;
+if(isset($_SESSION['username'])) {
+    $is_set_session = true;
+}
 
 $page = 'Single Court page';
 $systemErrors = [];

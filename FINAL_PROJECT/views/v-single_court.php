@@ -14,6 +14,8 @@
               <p class="col-6">Rating: <span class="avgStars"></span></p>
             </div>
           </div>
+
+          <?php if($is_set_session) { ?>
           <div class="col-5">
           <form action="single_court_controler.php?id=<?php echo htmlspecialchars($court_id); ?>" method="POST">
               <div class="mt-3 mb-3">
@@ -43,6 +45,8 @@
               <button class="w-100 btn btn-lg btn-success" type="submit" name="add_comment">Add comment</button>
             </form>
           </div>
+          <?php } ?>
+
         </div>
 
         <?php foreach($user_comments as $comment) { ?>
