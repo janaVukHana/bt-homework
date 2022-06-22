@@ -21,13 +21,14 @@ if(isset($_SESSION['username'])) {
 $page = 'Single Court page';
 $systemErrors = [];
 
-// $all_courts = 
+// if there is no query on page or id is no in database give me 404 page 
 $court_id = $_GET['id'];
 if($court_id == null) {
     header('Location: page_404_controler.php');
 } 
-// proveri da li je id pogresan
-// else if()
+if(!Courts::get_one_by_id($court_id)) {
+    header('Location: page_404_controler.php');
+};
 
 $comments = new Comments();
 

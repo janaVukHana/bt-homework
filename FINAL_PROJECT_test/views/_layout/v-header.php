@@ -16,7 +16,7 @@
     <!-- navigation -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Expand at md- LOGO</a>
+          <a class="navbar-brand" href="home_page_controler.php"><img src="public/theme/img/logo/boston-logo.png" alt="logo" class="logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

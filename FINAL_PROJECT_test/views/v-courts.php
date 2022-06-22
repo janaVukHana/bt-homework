@@ -8,11 +8,11 @@
             <div class="row d-flex justify-content-between mb-3">
                 <div class="col-md-4 col-sm-12 mb-1">
                     <select class="form-select court-location" aria-label="Default select example" name="court_location" onchange="this.form.submit()">
-                        <option <?php if($court_location == 'Hardest') echo htmlspecialchars('selected'); ?> value="Hardest">Hardest</option>
-                        <option <?php if($court_location == 'Easiest') echo htmlspecialchars('selected'); ?> value="Easiest">Easiest</option>
+                        <option <?php if($court_location == 'Hardest') echo htmlspecialchars('selected'); ?> value="Hardest">Hardest to play on</option>
+                        <option <?php if($court_location == 'Easiest') echo htmlspecialchars('selected'); ?> value="Easiest">Easiest to play on</option>
 
-                        <option <?php if($court_location == 'Newest' || $court_location == '') echo htmlspecialchars('selected'); ?> value="Newest">Newest</option>
-                        <option <?php if($court_location == 'Oldest') echo htmlspecialchars('selected'); ?> value="Oldest">Oldest</option>
+                        <option <?php if($court_location == 'Newest' || $court_location == '') echo htmlspecialchars('selected'); ?> value="Newest">Newest added</option>
+                        <option <?php if($court_location == 'Oldest') echo htmlspecialchars('selected'); ?> value="Oldest">Oldest added</option>
                         <option <?php if($court_location == 'Detelinara') echo htmlspecialchars('selected'); ?> value="Detelinara">Detelinara</option>
                         <option <?php if($court_location == 'Liman') echo htmlspecialchars('selected'); ?> value="Liman">Liman</option>
                         <option <?php if($court_location == 'Centar') echo htmlspecialchars('selected'); ?> value="Centar">Centar</option>
@@ -33,12 +33,14 @@
         <!-- end of filters -->
           
 
-          <div class="courts-container row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="courts-container row">
             <?php foreach($all_courts as $court) { ?>
-              <div class="single-court col-lg-4 d-flex align-items-stretch">
-                <div class="card shadow-sm">
+              <div class="single-court col-4 mb-3 d-flex">
+                <div class="card shadow-sm mx-auto">
                   <!-- NISAM SIGURAN DA JE OBJECT FIT VALIDNO RESENJE -->
-                  <img style="width: 100%; height: 60vh; object-fit:cover;" src="<?php echo htmlspecialchars($court['file_path']); ?>" alt="<?php echo htmlspecialchars($court['name']); ?> basketball court">
+                  <div style="height: 250px">
+                    <img style="max-height: 250px;" class="d-block mx-auto w-100" src="<?php echo htmlspecialchars($court['file_path']); ?>" alt="<?php echo htmlspecialchars($court['name']); ?> basketball court">
+                  </div>
 
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
@@ -49,13 +51,13 @@
                       <?php echo htmlspecialchars($court['created_at']); ?>
                       </small></p>
                     </div>
-      
+                    <div>
                         <p style="margin-top: -13px;">Name: <?php echo htmlspecialchars($court['name']); ?></p>
                         <p style="margin-top: -13px;">Location: <span class="location-name"><?php echo htmlspecialchars($court['location']); ?><span></p>
                         <p style="margin-top: -13px;">Rating: <span class="avg-rating"><?php echo htmlspecialchars($court['avg_rating']); ?><span></p> 
-                        <p style="margin-top: -13px;">Comments number: <span class="comment-num"><?php echo htmlspecialchars($court['comments_num']); ?><span></p>
-                    
-                    <div>
+                        <p class="mb-5" style="margin-top: -13px;">Comments number: <span class="comment-num"><?php echo htmlspecialchars($court['comments_num']); ?><span></p>
+                    </div>
+                      <div class="position-absolute bottom-0 start-0 ms-3 mb-2">
                         <a class="btn btn-outline-success" href="single_court_controler.php?id=<?php echo htmlspecialchars($court['id']); ?>">Show</a>
                       </div>
                   </div>

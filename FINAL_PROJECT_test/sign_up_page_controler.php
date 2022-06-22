@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['username'])) {
+    header('Location: home_page_controler.php');
+}
 
 $page = 'Sign up page';
 

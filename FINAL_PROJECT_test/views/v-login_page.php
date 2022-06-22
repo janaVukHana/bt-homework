@@ -12,11 +12,9 @@
       <main class="form-signin w-100 m-auto my-5">
         <!-- <form action="login_page_controler.php" method="POST"> -->
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-          <div class="mt-3 mb-3">
-              <i class="fa-solid fa-basketball fa-2xl"></i>          
-          </div>
-          <!-- <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-          <h1 class="h3 mb-3 fw-normal">Please Log In</h1>
+          
+          <img class="mb-4 d-block mx-auto" src="public/theme/img/logo/boston-logo.png" alt="logo" width="72" height="57">
+          <h1 class="h3 mb-3 fw-normal text-center">Please Log In</h1>
           <?php if(!$username_password_match) { ?>
           <p>
             <small class="text-danger">
@@ -35,6 +33,6 @@
             <label for="floatingPassword">Password</label>
           </div>
       
-          <button class="w-100 btn btn-lg btn-primary" type="submit" name="log_in">Log in</button>
+          <button class="w-100 btn btn-lg btn-success" type="submit" name="log_in">Log in</button>
         </form>
       </main>

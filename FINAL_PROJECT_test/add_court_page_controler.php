@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['username'])) {
+    header('Location: home_page_controler.php');
+}
 
 require_once __DIR__ . '/models/DB.php';
 require_once __DIR__ . '/models/Users.php';

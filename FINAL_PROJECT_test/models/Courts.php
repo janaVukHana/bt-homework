@@ -72,11 +72,11 @@ class Courts extends DB {
 
 
     /**
-     * This function return one court id
+     * This function return one court id or false if there is no that id
      * @param string $id
-     * @return array array
+     * @return array mixed
      */
-    public static function get_one_by_id(string $id): array {
+    public static function get_one_by_id(string $id): mixed {
         $sql = "SELECT * FROM `courts` WHERE id LIKE :id";
         $pdo = new DB();
 
@@ -85,6 +85,11 @@ class Courts extends DB {
         $st->execute();
 
         $row = $st->fetch();
+
+        if($row == null) {
+            return false;
+        }
+
         return $row;
     }
 

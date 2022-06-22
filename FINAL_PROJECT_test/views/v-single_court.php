@@ -1,14 +1,14 @@
 
  <!-- main content -->
 
- <div class="container px-4 py-5">
-        <div class="row align-items-center g-5 py-5">
+ <div class="container px-4 py-4">
+        <div class="row g-5 py-2">
           <div class="col-7">
             <h1><?php echo htmlspecialchars($court['name']); ?></h1>
-            <img src="<?php echo htmlspecialchars($court['file_path']); ?>" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+            <img style="height: 350px;" src="<?php echo htmlspecialchars($court['file_path']); ?>" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
             <div class="row">
-              <div class="col-12"><?php echo htmlspecialchars($court['description']); ?></div>
-              <p class="col-6">by<?php echo htmlspecialchars($court['creator']); ?></p>
+              <p class="col-12 bg-dark text-white py-1 rounded-1"><?php echo htmlspecialchars($court['description']); ?></p>
+              <p class="col-6">by <?php echo htmlspecialchars($court['creator']); ?></p>
               <p class="col-6"><?php echo htmlspecialchars($court['created_at']); ?></p>
               <p class="col-6">Location: <?php echo htmlspecialchars($court['location']); ?></p>
               <p class="col-6">Rating: <span class="avgStars"></span></p>
@@ -18,10 +18,8 @@
           <?php if($is_set_session) { ?>
           <div class="col-5">
           <form action="single_court_controler.php?id=<?php echo htmlspecialchars($court_id); ?>" method="POST">
-              <div class="mt-3 mb-3">
-                  <i class="fa-solid fa-basketball fa-2xl"></i>          
-              </div>
-                <!-- <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+              
+              <img class="mb-4 d-block mx-auto" src="public/theme/img/logo/boston-logo.png" alt="logo" width="72" height="57">
               <h1 class="h3 mb-3 fw-normal">Add comment. Express yourself</h1>
 
               <!-- COMMENT TEXTBOX-->
@@ -48,13 +46,19 @@
           <?php } ?>
 
         </div>
-
-        <?php foreach($user_comments as $comment) { ?>
-            <div class="bg-dark text-white p-1 mb-1">
-                <p><?php echo htmlspecialchars($comment['comment']); ?></p>
-                <p>Rating: <span class="stars"><?php echo htmlspecialchars($comment['rating']); ?></span></p>
-                <p>by <?php echo htmlspecialchars($comment['creator']); ?></p>
-            </div>
-        <?php } ?>
+        
+        <div class="row d-flex justify-content-between gx-1">
+          <?php foreach($user_comments as $comment) { ?>
+              <div class="col-6 text-white mb-1">
+                  <div class="bg-dark px-3 py-1">
+                    <p><?php echo htmlspecialchars($comment['comment']); ?></p>
+                    <div class="d-flex justify-content-between">
+                      <p>Rating: <span class="stars"><?php echo htmlspecialchars($comment['rating']); ?></span></p>
+                      <p><small>by <?php echo htmlspecialchars($comment['creator']); ?></small></p>
+                    </div>
+                  </div>
+              </div>
+          <?php } ?>
+        </div>
 
       </div>

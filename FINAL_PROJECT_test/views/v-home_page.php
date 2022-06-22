@@ -10,8 +10,8 @@
             
             <?php if(!$is_set_session) { ?>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <a href="login_page_controler.php" class="btn btn-primary btn-lg px-4 me-md-2">Login</a>
-              <a href="sign_up_page_controler.php" class="btn btn-outline-secondary btn-lg px-4">Sign Up</a>
+              <a href="login_page_controler.php" class="btn btn-success btn-lg px-4 me-md-2">Login</a>
+              <a href="sign_up_page_controler.php" class="btn btn-outline-success btn-lg px-4">Sign Up</a>
             </div>
             <?php } ?>
 

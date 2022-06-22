@@ -1,4 +1,17 @@
 
+// poulse social icons every few seconds
+
+setInterval(function() {
+    // console.log('ilija'); INTERVAL RADI
+    const socialIcons = document.querySelectorAll('.social-icon');
+    socialIcons.forEach(icon => {
+        icon.classList.add('social-icon-js');
+        setTimeout(function () {
+            icon.classList.remove('social-icon-js')
+        }, 100)
+    })
+},15000);
+
 if(window.location.href.indexOf('single_court_controler.php') >= 0) {
     // SINGLE COURT PAGE
 
@@ -46,11 +59,7 @@ if(window.location.href.indexOf('single_court_controler.php') >= 0) {
 
     buttons.forEach(button => {
         button.addEventListener('click', e => {
-            // proveri da li ima nesto u session storage i ako ima izvuci informacije
-            // informacije koje treba da prosledis su id i quantity
-            // u session storage treba pod cartItems imenom da ima array u kom su objekti sa id-jem i quantity
-            // ako nema session storage napravi sa imenom cartItems i dodaj array o kom je jedan objekat sa id i quantity 1
-            // ako ima proveri da li taj id ima u nekom objektu. ako ima povecaj quantity za jedan a ako nema dodaj id i q..
+            
             const btnId = button.getAttribute('id'); // getting attr id
             const quantity = 1;
             let item = {id: btnId, quantity: quantity};
@@ -96,4 +105,15 @@ if(window.location.href.indexOf('single_court_controler.php') >= 0) {
 
         }) // enc of event listener
     }) // end of buttons forEach
+
+    // cartItem button animation on click
+    const cartButtons = document.querySelectorAll('.cart-button');
+    cartButtons.forEach(item => {
+        item.addEventListener('click', cartClick);
+    })
+
+    function cartClick() {
+        let button = this;
+        button.classList.add('clicked');
+    }
 }
