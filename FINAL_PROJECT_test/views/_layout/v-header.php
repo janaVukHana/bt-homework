@@ -35,10 +35,23 @@
               </li>
               <?php } ?>
               <li class="nav-item">
+                <a class="nav-link <?php if($page == 'Products page') echo htmlspecialchars('active'); ?>" href="products_page_controler.php">Products</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
               </li>
             </ul>
           </div>
+          <?php if($page == 'Products page') { ?>
+            <a href="#" class="btn btn-warning position-relative">
+              ShoppingCart
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                0
+                <!-- <span class="visually-hidden">unread messages</span> -->
+              </span>
+            </a>
+          <?php } ?>
+
           <?php if($_SESSION['username']) { ?>
             <div class="dropdown">
               
