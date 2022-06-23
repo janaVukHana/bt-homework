@@ -12,9 +12,9 @@
 
                   <div class="card-body mb-5">
       
-                        <p style="margin-top: -13px;"><?php echo htmlspecialchars($product['name']); ?>: <?php echo htmlspecialchars($product['description']);  ?></p>
-                        <p style="margin-top: -13px;"><small>Price: <?php echo htmlspecialchars($product['price']); ?> $</small></p>
-                        <p class="d-none" style="margin-top: -13px;">Stock: <?php echo htmlspecialchars($product['stock']); ?></p>
+                        <p style="margin-top: -13px;"><span><?php echo htmlspecialchars($product['name']); ?></span>: <?php echo htmlspecialchars($product['description']);  ?></p>
+                        <p style="margin-top: -13px;"><small>Price: <span><?php echo htmlspecialchars($product['price']); ?></span> $</small></p>
+                        <p class="d-none" style="margin-top: -13px;">Stock: <span><?php echo htmlspecialchars($product['stock']); ?></span></p>
                         <p class="d-none" style="margin-top: -13px;">Barcode: <?php echo htmlspecialchars($product['barcode']); ?></p>
                     
                         <div>

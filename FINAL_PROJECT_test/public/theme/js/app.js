@@ -1,3 +1,7 @@
+// get current year
+const year = new Date().getFullYear();
+const footerYear = document.querySelector('.year');
+footerYear.innerHTML = year;
 
 // poulse social icons every few seconds
 
@@ -54,6 +58,13 @@ if(window.location.href.indexOf('single_court_controler.php') >= 0) {
         }
     })
 } else if (window.location.href.indexOf('products_page_controler.php') >= 0) {
+    // change number of items in badge in header
+    const badge = document.querySelector('.badge');
+    if(sessionStorage.getItem('cartItems')) {
+        let cartItems = JSON.parse(sessionStorage.getItem("cartItems"));
+        const numOfItems = cartItems.length || '0';
+        badge.innerHTML = numOfItems; 
+    }
 
     const buttons = document.querySelectorAll('.add-to-cart-btn');
 
@@ -62,7 +73,12 @@ if(window.location.href.indexOf('single_court_controler.php') >= 0) {
             
             const btnId = button.getAttribute('id'); // getting attr id
             const quantity = 1;
-            let item = {id: btnId, quantity: quantity};
+            const image = button.parentElement.parentElement.parentElement.firstElementChild.getAttribute('src');
+            const name = button.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML;
+            const price = button.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML;
+            const stock = button.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.innerHTML;
+
+            let item = {id: btnId, quantity: quantity, image: image, name: name, price: price, stock: stock};
             let items = [];
 
             // if sesstion is empty create one
@@ -85,7 +101,7 @@ if(window.location.href.indexOf('single_court_controler.php') >= 0) {
                 
                 cartItems.forEach(item => {
                     if(btnId == item.id) {
-                        item.quantity++;
+                        // item.quantity++;
                         cartItemExist = true;
                     }
                 })
@@ -116,4 +132,111 @@ if(window.location.href.indexOf('single_court_controler.php') >= 0) {
         let button = this;
         button.classList.add('clicked');
     }
+} else if (window.location.href.indexOf('shopping_cart_page_controler.php') >= 0) {
+
+    // get products container
+    const productsContainer = document.querySelector('.products');
+
+    // get cartItems array from session Storage
+    let cartItems = JSON.parse(sessionStorage.getItem("cartItems"));
+
+    // for every cartItem in array make product element
+    cartItems.forEach(item => {
+        let product = document.createElement('div');
+        product.classList.add('row');
+        product.classList.add('bg-white');
+        product.classList.add('mb-1');
+        product.classList.add('py-3');
+
+        product.innerHTML = `
+                <div class="col-3"><img style="width: 50%;" src="${item.image}" alt="${item.name}" /></div>
+                <div class="col-2">${item.name}</div>
+                <div class="col-2">${item.price} x </div>
+                <div class="col-2">
+                    <input data-id="${item.id}" class="product-quantity" type="number" name="quantity-${item.id}" value="${item.quantity}" max="3" min="1" step="1" />
+                </div>
+                <div class="col-2"> = <span class="tpp total-product-price-${item.id}">${item.price}</span></div>
+                <div class="col-1"><button data-id=${item.id} class='delete btn btn-dark text-white'>X</button></div>
+                <input type="hidden" name="${item.id}" value="product-id">
+                <input type="hidden" name="total_quantity-${item.id}" value="product-total-quantity-${item.stock}">
+        `;
+
+        productsContainer.appendChild(product);
+    })
+
+    // calculate total price
+     let totalPrice = 0;
+     const totalProductsPrices = document.querySelectorAll('.tpp');
+     totalProductsPrices.forEach(price => {
+        // need product quantity
+        // let quantity = price.previousElementSibling.firstChild.value;
+
+         totalPrice += +price.innerHTML;
+     })
+
+    // delete item on button click
+    const deleteBtns = document.querySelectorAll('.delete')
+    deleteBtns.forEach((button, index) => {
+        button.addEventListener('click', e => {
+            // also need to remove from sessionStorage 
+            cartItems.forEach((item, index) => {
+                const buttonDataId = button.getAttribute('data-id');
+                if(item.id === buttonDataId) {
+                    cartItems.splice(index, 1);
+                }
+                sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+                button.parentElement.parentElement.remove();
+                // calculate total productS price
+                let totalPrice = 0;
+                const totalProductsPrices = document.querySelectorAll('.tpp');
+                totalProductsPrices.forEach(price => {
+                    totalPrice += +price.innerHTML;
+                })
+                // update total price UI
+                let totalCost = document.querySelector('.total-cost');
+                totalCost.innerHTML = totalPrice;
+            })
+        })
+    })
+
+    // update quantity on input change 
+    const productQuantityInput = document.querySelectorAll('.product-quantity');
+    productQuantityInput.forEach((input, index) => {
+        input.addEventListener('change', e => {
+            cartItems.forEach(item => {
+                const inputDataId = input.getAttribute('data-id');
+                if(inputDataId == item.id) {
+                    item.quantity = input.value;
+                    // update quantity in sessionStorage
+                    cartItems.forEach(item => {
+                        if(inputDataId == item.id) {
+                            item.quantity = item.quantity;
+                        }
+                        sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    })
+                    // calculate total product price
+                    const totalProductPrice = item.quantity * item.price;
+                    const totalProductPriceContainer = document.querySelector(`.total-product-price-${item.id}`);
+                    totalProductPriceContainer.innerHTML = totalProductPrice; 
+                    // calculate total productS price
+                    let totalPrice = 0;
+                    const totalProductsPrices = document.querySelectorAll('.tpp');
+                    totalProductsPrices.forEach(price => {
+                        totalPrice += +price.innerHTML;
+                    })
+                    // update total price UI
+                    let totalCost = document.querySelector('.total-cost');
+                    totalCost.innerHTML = totalPrice;
+                    // get alert if there in not enough products in stock
+                    if(item.quantity > item.stock) {
+                        alert('update stock');
+                    }
+                }
+            })
+        })
+    })
+
+    // update total price UI
+    let totalCost = document.querySelector('.total-cost');
+    totalCost.innerHTML = totalPrice;
 }

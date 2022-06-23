@@ -43,7 +43,7 @@
             </ul>
           </div>
           <?php if($page == 'Products page') { ?>
-            <a href="#" class="btn btn-warning position-relative">
+            <a href="shopping_cart_page_controler.php" class="btn btn-warning position-relative">
               ShoppingCart
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 0
