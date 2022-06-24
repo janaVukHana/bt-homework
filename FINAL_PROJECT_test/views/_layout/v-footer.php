@@ -55,6 +55,7 @@
               <div class="social-icon"><a href="https://www.linkedin.com/in/ilija-radovanovic-84651a82/" target="_blank"><i class="fa-brands fa-linkedin fa-3x"></i></a></div>
             </div>
 
+
             <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
               <p>© <span class="year"></span> Ilija Radovanović & ITBootcamp. All rights reserved. <br>Made with ♥ & ☕ in Novi Sad, Budva and Belgrade. </p>
               <!-- <ul class="list-unstyled d-flex">

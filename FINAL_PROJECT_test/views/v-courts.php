@@ -45,7 +45,7 @@
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                       <p class="card-text">
-                        by <?php echo htmlspecialchars($court['creator']); ?>
+                        <small>by <?php echo htmlspecialchars($court['creator']); ?></small>
                       </p>
                       <p><small>
                       <?php echo htmlspecialchars($court['created_at']); ?>

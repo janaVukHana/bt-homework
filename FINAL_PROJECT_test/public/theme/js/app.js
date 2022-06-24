@@ -13,8 +13,16 @@ setInterval(function() {
         setTimeout(function () {
             icon.classList.remove('social-icon-js')
         }, 100)
+        
+        setTimeout(function () {
+            icon.classList.add('social-icon-js');
+            setTimeout(function () {
+                icon.classList.remove('social-icon-js')
+            }, 100)
+        }, 200)
+
     })
-},15000);
+},10000);
 
 if(window.location.href.indexOf('single_court_controler.php') >= 0) {
     // SINGLE COURT PAGE
@@ -239,4 +247,13 @@ if(window.location.href.indexOf('single_court_controler.php') >= 0) {
     // update total price UI
     let totalCost = document.querySelector('.total-cost');
     totalCost.innerHTML = totalPrice;
+
+    // AUTOPLAY VIDEO - not working(change muted to 0 but video stop)
+    // const video = document.querySelector('iframe');
+    // let src = video.getAttribute('src');
+    // let newSrc = src.slice(0, src.length - 1) + '0';
+    // setTimeout(() => {
+    //     video.setAttribute('src', newSrc);
+    // }, 5000)
+    
 }

@@ -1,5 +1,6 @@
 <?php
 session_start();
+// if not looged in redirect to home page 
 if(!isset($_SESSION['username'])) {
     header('Location: home_page_controler.php');
 }

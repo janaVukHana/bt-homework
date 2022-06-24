@@ -1,5 +1,15 @@
 <?php
-// session_start();
+session_start();
+// if not looged in redirect to home page 
+if(!isset($_SESSION['username'])) {
+    header('Location: products_page_controler.php');
+}
+
+// if session is set show add court page, else show login/signup buttons
+$is_set_session = false;
+if(isset($_SESSION['username'])) {
+    $is_set_session = true;
+}
 
 // require_once __DIR__ . '/models/DB.php';
 // require_once __DIR__ . '/models/Users.php';
